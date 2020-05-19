@@ -1,0 +1,9 @@
+component: website
+name: nick-monaco
+stage: prod
+
+inputs:
+  src: ./src
+  # domain: nickmonaco.me
+  # bucketName: my-bucket
+  errorDocument: 404.html

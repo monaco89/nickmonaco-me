@@ -40,17 +40,44 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify`,
+      resolve: `gatsby-plugin-csp`,
       options: {
-        headers: {
-          "/*": ["Strict-Transport-Security: max-age=63072000"],
-        }, // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+        disableOnDev: true,
+        reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
+        mergeScriptHashes: true, // you can disable scripts sha256 hashes
+        mergeStyleHashes: true, // you can disable styles sha256 hashes
+        mergeDefaultDirectives: true,
+        directives: {
+          "script-src": "'self' www.google-analytics.com",
+          "style-src": "'self' 'unsafe-inline'",
+          "img-src": "'self' data: www.google-analytics.com",
+          // you can add your directives or override defaults
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID | "none",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+        // Enables Google Optimize using your container Id
+        optimizeId: process.env.GOOGLE_ANALYTICS_TRACKING_ID | "none",
+        // Enables Google Optimize Experiment ID
+        // experimentId: "YOUR_GOOGLE_EXPERIMENT_ID",
+        // Set Variation ID. 0 for original 1,2,3....
+        // variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
+        // Defers execution of google analytics script after page load
+        defer: false,
       },
     },
     {
