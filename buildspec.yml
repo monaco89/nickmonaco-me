@@ -1,17 +1,55 @@
+# version: 0.2
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 10
+#     commands:
+#       - echo Installing Gatsby and Gatsby-CLI...
+#       - npm install -g gatsby
+#       # - npm install -g gatsby-cli --force
+#     pre_build:
+#       commands:
+#         - yarn install
+#     build:
+#       commands:
+#         - echo Build initiated...
+#         - GATSBY_ACTIVE_ENV=$ENVIRONMENT S3_BUCKET=$S3_BUCKET yarn build
+#     post_build:
+#       commands:
+#         - echo Synchronizing public directory...
+#         - if [ $CODEBUILD_BUILD_SUCCEEDING = 1 ]; then
+#           GATSBY_ACTIVE_ENV=$ENVIRONMENT S3_BUCKET=$S3_BUCKET yarn deploy;
+#           else
+#           echo Build failed ignoring deployment;
+#           fi
+# artifacts:
+#   base-directory: public
+#   files:
+#     - "**/*"
+#   discard-paths: yes
 version: 0.2
 phases:
   install:
     runtime-versions:
       nodejs: 10
     commands:
-      - npm install serverless -g
-  build:
-    #         aws cloudfront create-invalidation --distribution-id $CLOUDFRONTID --paths '/*';
+      - "touch .npmignore"
+      - "npm install -g gatsby"
+  pre_build:
     commands:
-      - npm install
-      - npm run build
-      - if [ $CODEBUILD_BUILD_SUCCEEDING = 1 ]; then
-        serverless deploy;
-        else
-        echo build failed;
-        fi
+      - "npm ci --production"
+  build:
+    commands:
+      - "yarn build"
+  post_build:
+    commands:
+      - "yarn deploy"
+artifacts:
+  base-directory: public
+  files:
+    - "**/*"
+  discard-paths: no
+cache:
+  paths:
+    - ".cache/*"
+    - "public/*"
