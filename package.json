@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-julia",
+  "name": "nick-monaco",
   "private": true,
-  "description": "A minimal blog template built with Gatsby",
+  "description": "Nick Monaco blog + projects + hopes and dreams",
   "version": "0.1.0",
-  "author": "Niklas Metje <hi@niklasmtj.de>",
+  "author": "Nick Monaco",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
@@ -34,7 +34,6 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -45,9 +44,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/monaco89/nick-monaco-me"
   }
 }
