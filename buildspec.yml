@@ -37,7 +37,7 @@ phases:
       - "npm install -g gatsby"
   pre_build:
     commands:
-      - "yarn ci --production"
+      - "yarn install --frozen-lockfile"
   build:
     commands:
       - "yarn build"
