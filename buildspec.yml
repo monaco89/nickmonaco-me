@@ -37,7 +37,7 @@ phases:
       - "npm install -g gatsby"
   pre_build:
     commands:
-      - "npm ci --production"
+      - "yarn ci --production"
   build:
     commands:
       - "yarn build"
