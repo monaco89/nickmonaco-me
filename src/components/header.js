@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import PropTypes from "prop-types"
 import React from "react"
+import { GitHub, Rss } from "react-feather"
 
 const Content = styled.div`
   max-width: 860px;
@@ -78,7 +79,12 @@ const Header = ({ siteTitle }) => (
       <p>
         <HomeLink to="/">{siteTitle}</HomeLink>
         <NavLink to="/blog">Blog</NavLink>
-        <GitHubLink href="https://github.com/monaco89">GitHub</GitHubLink>
+        <NavLink to="/feed">
+          <Rss />
+        </NavLink>
+        <GitHubLink target="_blank" href="https://github.com/monaco89">
+          <GitHub />
+        </GitHubLink>
       </p>
     </Content>
   </SiteHeader>

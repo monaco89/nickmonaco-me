@@ -2,6 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
+import { Download } from "react-feather"
+import Profile from "../images/me.jpeg"
+import Resume from "../data/NickMonacoResume_20200201.pdf"
 
 const Container = styled.div`
   text-align: center;
@@ -26,6 +29,29 @@ const NameHeader = styled.h1`
   margin-bottom: 0;
 `
 
+const ProfilePicture = styled.img`
+  border-radius: 50%;
+  height: 20vh;
+  width: 20vh;
+  overflow: hidden;
+
+  :hover {
+    -moz-box-shadow: 0 0 10px #888;
+    -webkit-box-shadow: 0 0 10px#888;
+    box-shadow: 0 0 5px #888;
+    transform: translateY(-5%);
+    cursor: pointer;
+  }
+`
+
+const ResumeLink = styled.a`
+  text-decoration: none;
+
+  :hover {
+    text-decoration: underline;
+  }
+`
+
 const LandingBio = () => (
   <StaticQuery
     query={graphql`
@@ -38,11 +64,17 @@ const LandingBio = () => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <OuterContainer>
         <Container>
+          <ProfilePicture src={Profile} alt="Nick Monaco Smiling" />
           <NameHeader>{data.site.siteMetadata.title}</NameHeader>
           <Description>{data.site.siteMetadata.subtitle}</Description>
+          <ResumeLink href={Resume} target="_blank">
+            Resume 
+            {' '}
+            <Download style={{ height: "15px" }} />
+          </ResumeLink>
         </Container>
       </OuterContainer>
     )}
