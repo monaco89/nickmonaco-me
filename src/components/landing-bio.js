@@ -34,14 +34,6 @@ const ProfilePicture = styled.img`
   height: 20vh;
   width: 20vh;
   overflow: hidden;
-
-  :hover {
-    -moz-box-shadow: 0 0 10px #888;
-    -webkit-box-shadow: 0 0 10px#888;
-    box-shadow: 0 0 5px #888;
-    transform: translateY(-5%);
-    cursor: pointer;
-  }
 `
 
 const ResumeLink = styled.a`
