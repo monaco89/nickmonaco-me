@@ -78,10 +78,10 @@ const Header = ({ siteTitle }) => (
     <Content>
       <p>
         <HomeLink to="/">{siteTitle}</HomeLink>
-        <NavLink to="/blog">Blog</NavLink>
-        <NavLink to="/feed">
+        {/* <NavLink to="/blog">Blog</NavLink> */}
+        <GitHubLink target="_blank" href="https://rss.nickmonaco.me">
           <Rss />
-        </NavLink>
+        </GitHubLink>
         <GitHubLink target="_blank" href="https://github.com/monaco89">
           <GitHub />
         </GitHubLink>
