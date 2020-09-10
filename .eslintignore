@@ -1,0 +1,4 @@
+/cypress
+.cache
+public
+node_modules
