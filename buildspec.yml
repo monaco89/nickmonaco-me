@@ -13,7 +13,7 @@ phases:
     commands:
       - printenv > .env
       - "yarn build"
-      - "yarn test:e2e:ci"
+      # - "yarn test:e2e:ci"
   post_build:
     commands:
       - "yarn deploy"
