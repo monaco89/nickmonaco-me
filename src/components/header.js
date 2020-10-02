@@ -16,28 +16,32 @@ const NavLink = styled(Link)`
   text-decoration: none;
   display: inline-block;
   position: relative;
-
   box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
   background: #f2f4f8;
   padding: 10px;
   border-radius: 8px;
 
-  ::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    transform-origin: bottom right;
-    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-  }
+  // ::after {
+  //   content: "";
+  //   position: absolute;
+  //   width: 100%;
+  //   transform: scaleX(0);
+  //   height: 2px;
+  //   bottom: 0;
+  //   left: 0;
+  //   background-color: rgba(0, 0, 0, 0.8);
+  //   transform-origin: bottom right;
+  //   transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  // }
 
-  :hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  // :hover::after {
+  //   transform: scaleX(1);
+  //   transform-origin: bottom left;
+  // }
+  :hover {
+    box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
+      inset -3px -3px 6px 0px #fff;
+    color: #808c99;
   }
 `
 
@@ -53,22 +57,27 @@ const GitHubLink = styled.a`
   padding: 10px;
   border-radius: 8px;
 
-  ::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    transform-origin: bottom right;
-    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-  }
+  // ::after {
+  //   content: "";
+  //   position: absolute;
+  //   width: 100%;
+  //   transform: scaleX(0);
+  //   height: 2px;
+  //   bottom: 0;
+  //   left: 0;
+  //   background-color: rgba(0, 0, 0, 0.8);
+  //   transform-origin: bottom right;
+  //   transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  // }
 
-  :hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  // :hover::after {
+  //   transform: scaleX(1);
+  //   transform-origin: bottom left;
+  // }
+  :hover {
+    box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
+      inset -3px -3px 6px 0px #fff;
+    color: #808c99;
   }
 `
 

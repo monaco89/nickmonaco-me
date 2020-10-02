@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
-import { Download } from "react-feather"
+import { FileText } from "react-feather"
 import Profile from "../images/me.jpeg"
 import Resume from "../data/NickMonacoResume_20200201.pdf"
 
@@ -24,7 +24,7 @@ const OuterContainer = styled.div`
 
 const Description = styled.p`
   padding: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-size: 1.4rem;
 `
 
@@ -40,14 +40,6 @@ const ProfilePicture = styled.img`
   overflow: hidden;
 `
 
-// const Indent = styled.p`
-//   box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
-//     inset -3px -3px 6px 0px #fff;
-//   border-radius: 8px;
-//   background: #f2f4f8;
-//   padding: 10px;
-// `
-
 const ResumeLink = styled.a`
   text-decoration: none;
   box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
@@ -55,7 +47,9 @@ const ResumeLink = styled.a`
   padding: 10px;
   border-radius: 8px;
   :hover {
-    text-decoration: underline;
+    box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
+      inset -3px -3px 6px 0px #fff;
+    color: #808c99;
   }
 `
 
@@ -78,9 +72,9 @@ const LandingBio = () => (
           <NameHeader>{data.site.siteMetadata.title}</NameHeader>
           <Description>{data.site.siteMetadata.subtitle}</Description>
           <ResumeLink href={Resume} target="_blank">
-            Resume 
+            <FileText style={{ height: "15px" }} />
             {' '}
-            <Download style={{ height: "15px" }} />
+            Resume
           </ResumeLink>
         </Container>
       </OuterContainer>
