@@ -5,7 +5,8 @@ import ReactPlayer from "react-player/youtube"
 import Wheelsvg from "../images/wheel.svg"
 import Wheelpng from "../images/wheel.png"
 import Tapepng from "../images/tape.png"
-import Label from "../images/label.png"
+import Labelpng from "../images/labelscript.png"
+import Labelsvg from "../images/labelscript.svg"
 
 const OuterContainer = styled.div`
   display: flex;
@@ -87,7 +88,7 @@ const Tape = styled.img`
   padding-top: 25px;
   width: 100px;
 `
-const CassetteLabel = styled.img`
+const CassetteLabel = styled.object`
   width: 90%;
 `
 
@@ -97,7 +98,9 @@ const Cassette = () => {
   return (
     <OuterContainer>
       <Container>
-        <CassetteLabel src={Label} alt="Cassette label" />
+        <CassetteLabel data={Labelsvg} type="image/svg+xml">
+          <img src={Labelpng} alt="Cassette label" />
+        </CassetteLabel>
         <Window>
           <Wheel
             data={Wheelsvg}
