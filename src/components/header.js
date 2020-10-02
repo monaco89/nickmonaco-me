@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import PropTypes from "prop-types"
 import React from "react"
-import { GitHub, Rss } from "react-feather"
+import { GitHub, Rss, Speaker } from "react-feather"
 
 const Content = styled.div`
   max-width: 860px;
@@ -45,7 +45,7 @@ const NavLink = styled(Link)`
   }
 `
 
-const GitHubLink = styled.a`
+const IconLink = styled.a`
   color: black;
   margin-left: 15px;
   text-decoration: none;
@@ -98,20 +98,23 @@ const Header = ({ siteTitle }) => (
       <p>
         <HomeLink to="/">{siteTitle}</HomeLink>
         {/* <NavLink to="/blog">Blog</NavLink> */}
-        <GitHubLink
+        <IconLink
           target="_blank"
           href="https://rss.nickmonaco.me"
           rel="noreferrer"
         >
           <Rss />
-        </GitHubLink>
-        <GitHubLink
+        </IconLink>
+        <IconLink
           target="_blank"
           href="https://github.com/monaco89"
           rel="noreferrer"
         >
           <GitHub />
-        </GitHubLink>
+        </IconLink>
+        <IconLink href="/fm">
+          <Speaker />
+        </IconLink>
       </p>
     </Content>
   </SiteHeader>

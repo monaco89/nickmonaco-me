@@ -13,7 +13,6 @@ const Container = styled.div`
   padding: 50px;
   border-radius: 8px;
 `
-
 const OuterContainer = styled.div`
   display: flex;
   align-items: center;
