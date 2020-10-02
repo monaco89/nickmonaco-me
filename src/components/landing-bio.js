@@ -8,6 +8,10 @@ import Resume from "../data/NickMonacoResume_20200201.pdf"
 
 const Container = styled.div`
   text-align: center;
+  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
+  background: #f2f4f8;
+  padding: 50px;
+  border-radius: 8px;
 `
 
 const OuterContainer = styled.div`
@@ -36,9 +40,20 @@ const ProfilePicture = styled.img`
   overflow: hidden;
 `
 
+// const Indent = styled.p`
+//   box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
+//     inset -3px -3px 6px 0px #fff;
+//   border-radius: 8px;
+//   background: #f2f4f8;
+//   padding: 10px;
+// `
+
 const ResumeLink = styled.a`
   text-decoration: none;
-
+  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
+  background: #f2f4f8;
+  padding: 10px;
+  border-radius: 8px;
   :hover {
     text-decoration: underline;
   }

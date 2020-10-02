@@ -17,6 +17,11 @@ const NavLink = styled(Link)`
   display: inline-block;
   position: relative;
 
+  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
+  background: #f2f4f8;
+  padding: 10px;
+  border-radius: 8px;
+
   ::after {
     content: "";
     position: absolute;
@@ -42,6 +47,11 @@ const GitHubLink = styled.a`
   text-decoration: none;
   display: inline-block;
   position: relative;
+
+  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
+  background: #f2f4f8;
+  padding: 10px;
+  border-radius: 8px;
 
   ::after {
     content: "";
