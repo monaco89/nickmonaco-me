@@ -6,7 +6,7 @@ import Cassette from "../components/cassette"
 
 const FmPage = () => (
   <Layout>
-    <SEO title="Vibin" keywords={[`nick`, `monaco`, `music`, `fm`]} />
+    <SEO title="🔈" keywords={[`nick`, `monaco`, `music`, `fm`]} />
     <Cassette />
   </Layout>
 )
