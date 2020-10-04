@@ -19,10 +19,10 @@ const Container = styled.div`
   text-align: center;
   box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
   background: #f2f4f8;
-  padding: 20px 50px 50px 50px;
+  padding: 0px 50px 50px 50px;
   border-radius: 8px;
   width: 80%;
-  height: 60%;
+  height: 50%;
 
   display: -webkit-box;
   display: -moz-box;
