@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "@emotion/styled"
 import { SkipBack, SkipForward, Play, Pause } from "react-feather"
 import ReactPlayer from "react-player/youtube"
+import { playlist } from "../constants/playlist"
 import Wheelsvg from "../images/wheel.svg"
 import Wheelpng from "../images/wheel.png"
 import Tapepng from "../images/tape.png"
@@ -19,10 +20,10 @@ const Container = styled.div`
   text-align: center;
   box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
   background: #f2f4f8;
-  padding: 0px 50px 50px 50px;
+  padding: 0px 3% 3% 3%;
   border-radius: 8px;
   width: 80%;
-  height: 50%;
+  height: 40vh;
 
   display: -webkit-box;
   display: -moz-box;
@@ -73,7 +74,7 @@ const Window = styled.div`
   box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
     inset -3px -3px 6px 0px #fff;
   background: #f2f4f8;
-  height: 100px;
+  height: 10vh;
   width: 70%;
   display: flex;
   align-items: center;
@@ -82,11 +83,11 @@ const Window = styled.div`
 `
 const Wheel = styled.object`
   height: auto;
-  width: 18%;
+  width: 15%;
 `
 const Tape = styled.img`
   padding-top: 25px;
-  width: 100px;
+  width: 25%;
 `
 const CassetteLabel = styled.object`
   width: 90%;
@@ -94,7 +95,8 @@ const CassetteLabel = styled.object`
 
 const Cassette = () => {
   const [play, toggle] = useState(false)
-
+  const [track, setTrack] = useState(0)
+  console.log(playlist[track])
   return (
     <OuterContainer>
       <Container>
@@ -119,13 +121,17 @@ const Cassette = () => {
           </Wheel>
         </Window>
         <ReactPlayer
-          url="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=0&amp;loop=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fsunday.fm&amp;widgetid=1"
+          url={`https://www.youtube.com/embed/${playlist[track]}?autoplay=0&loop=1&enablejsapi=1&origin=https://nickmonaco.me`}
           playing={play}
           height="0px"
           width="0px"
         />
         <Buttons>
-          <Button style={{ borderLeft: "none" }}>
+          <Button
+            style={{ borderLeft: "none" }}
+            disabled={track < 1}
+            onClick={() => setTrack(track - 1)}
+          >
             <SkipBack />
           </Button>
           <Button
@@ -156,7 +162,10 @@ const Cassette = () => {
           >
             <Pause />
           </Button>
-          <Button>
+          <Button
+            disabled={track >= playlist.length - 1}
+            onClick={() => setTrack(track + 1)}
+          >
             <SkipForward />
           </Button>
         </Buttons>
