@@ -46,7 +46,7 @@ const Buttons = styled.div`
   height: 45px;
   width: 100%;
   cursor: pointer;
-  margin-top: 50px;
+  margin-top: 10%;
 `
 
 const Button = styled.button`
@@ -60,6 +60,7 @@ const Button = styled.button`
   width: 25%;
   cursor: pointer;
   padding-top: 5px;
+  transition: all 0.2s linear;
   :hover {
     box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
       inset -3px -3px 6px 0px #fff;
@@ -87,10 +88,11 @@ const Wheel = styled.object`
 `
 const Tape = styled.img`
   padding-top: 25px;
-  width: 25%;
+  width: 30%;
 `
 const CassetteLabel = styled.object`
   width: 90%;
+  height: 30%;
 `
 
 const Cassette = () => {
