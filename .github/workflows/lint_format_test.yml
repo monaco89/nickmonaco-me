@@ -2,8 +2,7 @@ name: Linting Formatting Unit and Integration Tests
 
 on:
   pull_request:
-    branches:
-      - "main"
+    branches: [master]
 
 jobs:
   validate-code-and-test:
