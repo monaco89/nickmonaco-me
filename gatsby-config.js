@@ -11,6 +11,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,6 +42,14 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://nickmonaco.me",
+        sitemap: "https://nickmonaco.me/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     // {
