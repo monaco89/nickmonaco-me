@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import PropTypes from "prop-types"
 import React from "react"
 import { GitHub, Rss, Speaker } from "react-feather"
 
@@ -97,13 +96,5 @@ const Header = ({ siteTitle, path }) => (
     </Content>
   </SiteHeader>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
