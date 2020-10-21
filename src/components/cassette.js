@@ -98,7 +98,7 @@ const CassetteLabel = styled.object`
 const Cassette = () => {
   const [play, toggle] = useState(false)
   const [track, setTrack] = useState(0)
-  console.log(playlist[track])
+
   return (
     <OuterContainer>
       <Container>

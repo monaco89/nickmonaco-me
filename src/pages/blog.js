@@ -33,15 +33,15 @@ const ReadingTime = styled.h5`
   color: #606060;
 `
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, path }) => {
   return (
-    <Layout>
+    <Layout path={path}>
       <SEO title="Blog" />
       <Content>
         <h1>Blog</h1>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => {
-            const rawDate = node.frontmatter.rawDate
+            const {rawDate} = node.frontmatter
             const date = new Date(rawDate)
             return date < new Date()
           })
@@ -54,10 +54,17 @@ const IndexPage = ({ data }) => {
                   color: inherit;
                 `}
               >
-                <MarkerHeader>{node.frontmatter.title} </MarkerHeader>
+                <MarkerHeader>
+                  {node.frontmatter.title}
+                  {' '}
+                </MarkerHeader>
                 <div>
                   <ArticleDate>{node.frontmatter.date}</ArticleDate>
-                  <ReadingTime> - {node.fields.readingTime.text}</ReadingTime>
+                  <ReadingTime>
+                    {' '}
+                    -
+                    {node.fields.readingTime.text}
+                  </ReadingTime>
                 </div>
                 <p>{node.excerpt}</p>
               </Link>

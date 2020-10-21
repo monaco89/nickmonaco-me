@@ -70,7 +70,7 @@ const SiteHeader = styled.header`
   justify-content: center;
 `
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, path }) => (
   <SiteHeader>
     <Content>
       <p>
@@ -90,7 +90,7 @@ const Header = ({ siteTitle }) => (
         >
           <GitHub />
         </IconLink>
-        <IconLink href="/fm" active={window.location.pathname.includes("fm")}>
+        <IconLink href="/fm" active={path && path.includes("fm")}>
           <Speaker />
         </IconLink>
       </p>

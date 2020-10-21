@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import { FileText } from "react-feather"
 import Profile from "../images/me.jpeg"
-import Resume from "../data/NickMonacoResume_20200201.pdf"
 
 const Container = styled.div`
   text-align: center;
@@ -71,7 +70,7 @@ const LandingBio = () => (
           <ProfilePicture src={Profile} alt="Nick Monaco Smiling" />
           <NameHeader>{data.site.siteMetadata.title}</NameHeader>
           <Description>{data.site.siteMetadata.subtitle}</Description>
-          <ResumeLink href={Resume} target="_blank">
+          <ResumeLink href="nickmonacoresume.pdf" target="_blank">
             <FileText style={{ height: "15px" }} />
             {' '}
             Resume
