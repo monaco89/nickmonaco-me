@@ -5,13 +5,41 @@ const targetAddress = new URL(
 module.exports = {
   siteMetadata: {
     title: `Nick Monaco`,
-    subtitle: `software developer`,
+    subtitle: `Software Developer`,
     description: `Nick Monaco's blog, projects, hopes and dreams`,
     author: `@nickmonaco`,
+    siteUrl: "https://nickmonaco.me",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+  
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+        }`,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.nodes.map((node) => {
+            return {
+              url: `${site.siteMetadata.siteUrl}${node.path}`,
+              changefreq: `yearly`,
+              priority: 0.7,
+            }
+          }),
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

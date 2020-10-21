@@ -4,19 +4,19 @@ phases:
     runtime-versions:
       nodejs: 10
     commands:
-      - "touch .npmignore"
-      - "npm install -g gatsby"
+      # - "touch .npmignore"
+      - npm install -g gatsby
   pre_build:
     commands:
-      - "yarn install --frozen-lockfile"
+      - yarn install --frozen-lockfile
   build:
     commands:
-      - printenv > .env
-      - "yarn build"
+      # - printenv > .env
+      - yarn build
       # - "yarn test:e2e:ci"
   post_build:
     commands:
-      - "yarn deploy"
+      - yarn deploy
 artifacts:
   base-directory: public
   files:
