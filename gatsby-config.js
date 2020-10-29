@@ -5,7 +5,7 @@ const targetAddress = new URL(
 module.exports = {
   siteMetadata: {
     title: `Nick Monaco`,
-    subtitle: `Software Developer`,
+    subtitle: `Software Developer 👨‍💻`,
     description: `Nick Monaco's blog, projects, hopes and dreams`,
     author: `@nickmonaco`,
     siteUrl: "https://nickmonaco.me",
@@ -131,7 +131,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/images/qrcode.png`, // This path is relative to the root of the site.
+        icon: `src/images/m2.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
