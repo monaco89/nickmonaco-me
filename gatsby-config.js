@@ -5,7 +5,7 @@ const targetAddress = new URL(
 module.exports = {
   siteMetadata: {
     title: `Nick Monaco`,
-    subtitle: `Software Developer`,
+    subtitle: `Software Developer 👨‍💻`,
     description: `Nick Monaco's blog, projects, hopes and dreams`,
     author: `@nickmonaco`,
     siteUrl: "https://nickmonaco.me",
