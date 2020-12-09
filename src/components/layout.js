@@ -15,6 +15,7 @@ const Content = styled.div`
 const Footer = styled.footer`
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 `
 
 const Layout = ({ path, children }) => (
@@ -33,14 +34,16 @@ const Layout = ({ path, children }) => (
         <Header siteTitle={data.site.siteMetadata.title} path={path} />
         <Content>
           <main>{children}</main>
-          <Footer>
-            <p>
-              ©
-              {new Date().getFullYear()}
-              {' '}
-              Nick Monaco
-            </p>
-          </Footer>
+          <div>
+            <Footer>
+              <p>
+                ©
+                {new Date().getFullYear()}
+                {' '}
+                Nick Monaco
+              </p>
+            </Footer>
+          </div>
         </Content>
       </>
     )}

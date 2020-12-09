@@ -15,6 +15,10 @@ const OuterContainer = styled.div`
   justify-content: center;
   flex-direction: row;
   height: 78vh;
+
+  @media (max-width: 767px) {
+    height: 50vh;
+  }
 `
 const Container = styled.div`
   text-align: center;
@@ -39,6 +43,10 @@ const Container = styled.div`
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+
+  @media (max-width: 767px) {
+    width 100%;
+ }
 `
 const Buttons = styled.div`
   box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;

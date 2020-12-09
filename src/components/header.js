@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import React from "react"
-import { GitHub, Rss, Speaker } from "react-feather"
+import { GitHub, Rss, Speaker, Mail } from "react-feather"
 
 const Content = styled.div`
   max-width: 860px;
@@ -60,6 +60,7 @@ const IconLink = styled.a`
 
 const HomeLink = styled(NavLink)`
   margin-left: 0;
+  font-weight: Bold;
 `
 
 const SiteHeader = styled.header`
@@ -69,16 +70,17 @@ const SiteHeader = styled.header`
   justify-content: center;
 `
 
-const Header = ({ siteTitle, path }) => (
+const Header = ({ path }) => (
   <SiteHeader>
     <Content>
       <p>
-        <HomeLink to="/">{siteTitle}</HomeLink>
+        <HomeLink to="/">NM</HomeLink>
         {/* <NavLink to="/blog">Blog</NavLink> */}
         <IconLink
           target="_blank"
           href="https://rss.nickmonaco.me"
           rel="noreferrer"
+          title="RSS Feed"
         >
           <Rss />
         </IconLink>
@@ -86,10 +88,14 @@ const Header = ({ siteTitle, path }) => (
           target="_blank"
           href="https://github.com/monaco89"
           rel="noreferrer"
+          title="Github"
         >
           <GitHub />
         </IconLink>
-        <IconLink href="/fm" active={path && path.includes("fm")}>
+        <IconLink href="mailto:nick.monaco15@gmail.com" title="Email">
+          <Mail />
+        </IconLink>
+        <IconLink href="/fm" active={path && path.includes("fm")} title="Music">
           <Speaker />
         </IconLink>
       </p>

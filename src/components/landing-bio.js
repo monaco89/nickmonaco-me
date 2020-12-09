@@ -10,6 +10,10 @@ const Container = styled.div`
   background: #f2f4f8;
   padding: 50px;
   border-radius: 8px;
+
+  @media (max-width: 767px) {
+    padding: 25px 0px 30px 0px;
+  }
 `
 const OuterContainer = styled.div`
   display: flex;
@@ -19,15 +23,18 @@ const OuterContainer = styled.div`
   height: 78vh;
 `
 
+const SubTitle = styled.h2`
+  padding: 0;
+`
+
 const Description = styled.p`
   padding: 0;
-  margin-bottom: 2rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
 `
 
 const NameHeader = styled.h1`
   font-size: 3.5rem;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 `
 
 const ProfilePicture = styled.img`
@@ -68,7 +75,8 @@ const LandingBio = () => (
         <Container>
           <ProfilePicture src={Profile} alt="Nick Monaco Smiling" />
           <NameHeader>{data.site.siteMetadata.title}</NameHeader>
-          <Description>{data.site.siteMetadata.subtitle}</Description>
+          <SubTitle>{data.site.siteMetadata.subtitle}</SubTitle>
+          <Description>Based in Washington, D.C.</Description>
           <ResumeLink href="nickmonacoresume.pdf" target="_blank">
             <FileText style={{ height: "15px" }} />
             {' '}

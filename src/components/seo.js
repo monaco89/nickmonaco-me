@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({
   description,
-  lang,
+  lang = "en",
   keywords = ["nick", "monaco", "software", "developer"],
   title,
 }) {
@@ -40,6 +40,10 @@ function SEO({
           {
             property: `og:title`,
             content: title,
+          },
+          {
+            property: `og:url`,
+            content: "https://nickmonaco.me",
           },
           {
             property: `og:description`,
