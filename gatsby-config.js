@@ -31,13 +31,11 @@ module.exports = {
             }
         }`,
         serialize: ({ site, allSitePage }) =>
-          allSitePage.nodes.map((node) => {
-            return {
+          allSitePage.nodes.map((node) => ({
               url: `${site.siteMetadata.siteUrl}${node.path}`,
               changefreq: `yearly`,
               priority: 0.7,
-            }
-          }),
+            })),
       },
     },
     {
@@ -131,7 +129,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        // icon: `src/images/m2.png`, // This path is relative to the root of the site.
+        icon: `src/images/m2.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
