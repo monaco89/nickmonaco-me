@@ -1,8 +1,9 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
-
 import Header from "./header"
+import MediaPlayer from "./MediaPlayer"
+
 import "./layout.css"
 
 const Content = styled.div`
@@ -35,6 +36,7 @@ const Layout = ({ path, children }) => (
         <Content>
           <main>{children}</main>
           <div>
+            <MediaPlayer />
             <Footer>
               <p>
                 ©

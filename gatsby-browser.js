@@ -1,14 +1,14 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+require("prism-themes/themes/prism-atom-dark.css")
+require("prismjs/plugins/line-numbers/prism-line-numbers.css")
 
-// You can delete this file if you're not using it
+export const onInitialClientRender = () => {
+  /* eslint-disable global-require */
+  require("typeface-nunito")
+}
 
-require("prism-themes/themes/prism-atom-dark.css");
-require("prismjs/plugins/line-numbers/prism-line-numbers.css");
+const React = require("react")
+const GlobalContextProvider = require("./src/utils/context").default
 
-exports.onInitialClientRender = () => {
-  require("typeface-nunito");
-};
+export const wrapRootElement = ({ element }) => (
+  <GlobalContextProvider>{element}</GlobalContextProvider>
+)
