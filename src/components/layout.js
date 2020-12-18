@@ -1,8 +1,11 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
+import { ThemeProvider } from "@emotion/react"
 import Header from "./header"
-import MediaPlayer from "./MediaPlayer"
+// import MediaPlayer from "./MediaPlayer"
+import ThemeButton from "./ThemeButton"
+import { light } from "../constants/globalTheme"
 
 import "./layout.css"
 
@@ -31,12 +34,13 @@ const Layout = ({ path, children }) => (
       }
     `}
     render={(data) => (
-      <>
+      <ThemeProvider theme={light}>
         <Header siteTitle={data.site.siteMetadata.title} path={path} />
         <Content>
           <main>{children}</main>
           <div>
-            <MediaPlayer />
+            {/* {path !== "/fm/" && <MediaPlayer />} */}
+            <ThemeButton />
             <Footer>
               <p>
                 ©
@@ -47,7 +51,7 @@ const Layout = ({ path, children }) => (
             </Footer>
           </div>
         </Content>
-      </>
+      </ThemeProvider>
     )}
   />
 )

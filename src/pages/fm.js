@@ -1,8 +1,7 @@
 import React from "react"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Cassette from "../components/cassette"
+import Cassette from "../components/Cassette"
 
 const FmPage = ({ path }) => (
   <Layout path={path}>

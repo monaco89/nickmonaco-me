@@ -7,6 +7,7 @@ export const GlobalDispatchContext = createContext()
 
 const initialState = {
   player: false,
+  theme: "light",
 }
 
 function reducer(state, [type]) {
@@ -15,6 +16,11 @@ function reducer(state, [type]) {
       return {
         ...state,
         player: !state.player,
+      }
+    case "TOGGLE_THEME":
+      return {
+        ...state,
+        theme: state.theme === "light" ? "dark" : "light",
       }
     default:
       throw new Error("Bad Action Type")

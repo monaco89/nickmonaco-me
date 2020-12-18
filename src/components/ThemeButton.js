@@ -1,23 +1,22 @@
 import React, { useContext } from "react"
 import styled from "@emotion/styled"
-import { Speaker } from "react-feather"
+import { Sun, Moon } from "react-feather"
 import { GlobalDispatchContext, GlobalStateContext } from "../utils/context"
-import MiniCassette from "./MiniCassette"
 
-const IconLink = styled.button`
+const IconButton = styled.a`
   color: black;
+  margin-left: 15px;
   text-decoration: none;
   display: inline-block;
   transition: all 0.2s linear;
-  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
-  background: #f2f4f8;
+  box-shadow: ${(props) => props.theme.boxShadow}
+  background: ${(props) => props.theme.background}
   padding: 10px 10px 0px 10px;
   border-radius: 8px;
-  border: none;
   position: absolute;
   bottom: 15px;
   right: 15px;
-  cursor: pointer;
+  cursor: pointer
 
   :hover {
     box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
@@ -34,26 +33,21 @@ const IconLink = styled.button`
 `}
 `
 
-const MediaPlayer = () => {
+const ThemeButton = () => {
   const dispatch = useContext(GlobalDispatchContext)
   const state = useContext(GlobalStateContext)
 
+  console.log(state)
+
   return (
-    <>
-      {state.player ? (
-        <MiniCassette />
+    <IconButton>
+      {state.theme === "light" ? (
+        <Sun onClick={() => dispatch(["TOGGLE_THEME"])} />
       ) : (
-        <IconLink
-          type="button"
-          onClick={() => {
-            dispatch(["TOGGLE_PLAYER"])
-          }}
-        >
-          <Speaker />
-        </IconLink>
+        <Moon onClick={() => dispatch(["TOGGLE_THEME"])} />
       )}
-    </>
+    </IconButton>
   )
 }
 
-export default MediaPlayer
+export default ThemeButton
