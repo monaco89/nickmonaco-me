@@ -1,7 +1,7 @@
+// https://neumorphism.io/#1d1f20
 export const dark = {
   color: "white",
   boxShadow: "8px 8px 16px #191a1b, -8px -8px 16px #212425;",
-  // background: "#1d1f20",
   background: "linear-gradient(145deg, #1a1c1d, #1f2122)",
   boxShadowInset: "inset 8px 8px 16px #191a1b, inset -8px -8px 16px #212425",
 }
