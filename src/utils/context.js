@@ -16,7 +16,6 @@ const supportsDarkMode = () =>
 const checkLocalStorage =
   (windowGlobal && JSON.parse(windowGlobal.localStorage.getItem("dark"))) ||
   supportsDarkMode()
-// const checkLocalStorage = false
 
 const initialState = {
   player: false,
