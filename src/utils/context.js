@@ -9,15 +9,14 @@ const ThemeContext = React.createContext()
 
 const windowGlobal = typeof window !== "undefined" && window
 
-// const supportsDarkMode = () =>
-//   windowGlobal &&
-//   windowGlobal.matchMedia("(prefers-color-scheme: dark)").matches === true
+const supportsDarkMode = () =>
+  windowGlobal &&
+  windowGlobal.matchMedia("(prefers-color-scheme: dark)").matches === true
 
-// TODO
-// const checkLocalStorage =
-//   (windowGlobal && JSON.parse(windowGlobal.localStorage.getItem("dark"))) ||
-//   supportsDarkMode()
-const checkLocalStorage = false
+const checkLocalStorage =
+  (windowGlobal && JSON.parse(windowGlobal.localStorage.getItem("dark"))) ||
+  supportsDarkMode()
+// const checkLocalStorage = false
 
 const initialState = {
   player: false,
