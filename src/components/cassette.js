@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import styled from "@emotion/styled"
 import { SkipBack, SkipForward, Play, Pause } from "react-feather"
 import ReactPlayer from "react-player/youtube"
 import { playlist } from "../constants/playlist"
+import { GlobalStateContext } from "../utils/context"
 import Wheelsvg from "../images/wheel.svg"
 import Wheelpng from "../images/wheel.png"
 import Tapepng from "../images/tape.png"
@@ -22,8 +23,8 @@ const OuterContainer = styled.div`
 `
 const Container = styled.div`
   text-align: center;
-  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
-  background: #f2f4f8;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  background: ${(props) => props.theme.background};
   padding: 0px 3% 3% 3%;
   border-radius: 8px;
   width: 80%;
@@ -49,7 +50,7 @@ const Container = styled.div`
  }
 `
 const Buttons = styled.div`
-  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 15px;
   height: 45px;
   width: 100%;
@@ -58,7 +59,7 @@ const Buttons = styled.div`
 `
 
 const Button = styled.button`
-  background: #f2f4f8;
+  background: ${(props) => props.theme.background};
   border-right: none;
   border-left: 1px solid black;
   border-top: none;
@@ -70,8 +71,7 @@ const Button = styled.button`
   padding-top: 5px;
   transition: all 0.2s linear;
   :hover {
-    box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
-      inset -3px -3px 6px 0px #fff;
+    box-shadow: ${(props) => props.theme.boxShadowInset};
     color: #808c99;
   }
   :active,
@@ -80,9 +80,8 @@ const Button = styled.button`
   }
 `
 const Window = styled.div`
-  box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
-    inset -3px -3px 6px 0px #fff;
-  background: #f2f4f8;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  background: ${(props) => props.theme.background};
   height: 10vh;
   width: 70%;
   display: flex;
@@ -104,16 +103,17 @@ const CassetteLabel = styled.object`
 `
 
 const Cassette = () => {
+  const state = useContext(GlobalStateContext)
   const [play, toggle] = useState(false)
   const [track, setTrack] = useState(0)
 
   return (
     <OuterContainer>
-      <Container>
+      <Container theme={{ ...state.themeLoaded }}>
         <CassetteLabel data={Labelsvg} type="image/svg+xml">
           <img src={Labelpng} alt="Cassette label" />
         </CassetteLabel>
-        <Window>
+        <Window theme={{ ...state.themeLoaded }}>
           <Wheel
             data={Wheelsvg}
             type="image/svg+xml"
@@ -136,11 +136,12 @@ const Cassette = () => {
           height="0px"
           width="0px"
         />
-        <Buttons>
+        <Buttons theme={{ ...state.themeLoaded }}>
           <Button
             style={{ borderLeft: "none" }}
             disabled={track < 1}
             onClick={() => setTrack(track - 1)}
+            theme={{ ...state.themeLoaded }}
           >
             <SkipBack />
           </Button>
@@ -149,12 +150,12 @@ const Cassette = () => {
             style={
               play
                 ? {
-                    boxShadow:
-                      "inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),inset -3px -3px 6px 0px #fff",
+                    boxShadow: state.themeLoaded.boxShadowInset,
                     color: "maroon",
                   }
                 : {}
             }
+            theme={{ ...state.themeLoaded }}
           >
             <Play />
           </Button>
@@ -163,18 +164,19 @@ const Cassette = () => {
             style={
               !play
                 ? {
-                    boxShadow:
-                      "inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),inset -3px -3px 6px 0px #fff",
+                    boxShadow: state.themeLoaded.boxShadowInset,
                     color: "maroon",
                   }
                 : {}
             }
+            theme={{ ...state.themeLoaded }}
           >
             <Pause />
           </Button>
           <Button
             disabled={track >= playlist.length - 1}
             onClick={() => setTrack(track + 1)}
+            theme={{ ...state.themeLoaded }}
           >
             <SkipForward />
           </Button>

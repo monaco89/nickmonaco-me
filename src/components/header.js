@@ -1,7 +1,8 @@
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import React from "react"
 import { GitHub, Rss, Speaker, Mail } from "react-feather"
+import { GlobalStateContext } from "../utils/context"
 
 const Content = styled.div`
   max-width: 860px;
@@ -10,52 +11,41 @@ const Content = styled.div`
 `
 
 const NavLink = styled(Link)`
-  color: black;
   margin-left: 15px;
   text-decoration: none;
   display: inline-block;
   position: relative;
-  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
-  background: #f2f4f8;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  background: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.color};
   padding: 10px;
   border-radius: 8px;
   transition: all 0.2s linear;
 
   :hover {
-    box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
-      inset -3px -3px 6px 0px #fff;
+    box-shadow: ${(props) => props.theme.boxShadowInset};
     transition: all 0.2s linear;
-    // background: -webkit-linear-gradient(#eee, #333);
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
   }
 `
 
 const IconLink = styled.a`
-  color: black;
   margin-left: 15px;
   text-decoration: none;
   display: inline-block;
   position: relative;
   transition: all 0.2s linear;
-  box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff;
-  background: #f2f4f8;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  background: ${(props) => props.theme.background};
+  color: ${(props) => (props.active ? "#808c99" : props.theme.color)};
   padding: 10px;
   border-radius: 8px;
 
   :hover {
-    box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
-      inset -3px -3px 6px 0px #fff;
+    box-shadow: ${(props) => props.theme.boxShadowInset};
     color: #808c99;
   }
 
-  ${(props) =>
-    props.active &&
-    `
-  box-shadow: inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06),
-  inset -3px -3px 6px 0px #fff;
-  color: #808c99;
-`}
+  box-shadow: ${(props) => props.active && props.theme.boxShadowInset};
 `
 
 const HomeLink = styled(NavLink)`
@@ -70,37 +60,54 @@ const SiteHeader = styled.header`
   justify-content: center;
 `
 
-const Header = ({ path }) => (
-  <SiteHeader>
-    <Content>
-      <p>
-        <HomeLink to="/">NM</HomeLink>
-        {/* <NavLink to="/blog">Blog</NavLink> */}
-        <IconLink
-          target="_blank"
-          href="https://rss.nickmonaco.me"
-          rel="noreferrer"
-          title="RSS Feed"
-        >
-          <Rss />
-        </IconLink>
-        <IconLink
-          target="_blank"
-          href="https://github.com/monaco89"
-          rel="noreferrer"
-          title="Github"
-        >
-          <GitHub />
-        </IconLink>
-        <IconLink href="mailto:nick.monaco15@gmail.com" title="Email">
-          <Mail />
-        </IconLink>
-        <IconLink href="/fm" active={path && path.includes("fm")} title="Music">
-          <Speaker />
-        </IconLink>
-      </p>
-    </Content>
-  </SiteHeader>
-)
+const Header = ({ path }) => {
+  const state = useContext(GlobalStateContext)
+
+  return (
+    <SiteHeader>
+      <Content>
+        <p>
+          <HomeLink to="/" theme={{ ...state.themeLoaded }}>
+            NM
+          </HomeLink>
+          {/* <NavLink to="/blog">Blog</NavLink> */}
+          <IconLink
+            target="_blank"
+            href="https://rss.nickmonaco.me"
+            rel="noreferrer"
+            title="RSS Feed"
+            theme={{ ...state.themeLoaded }}
+          >
+            <Rss />
+          </IconLink>
+          <IconLink
+            target="_blank"
+            href="https://github.com/monaco89"
+            rel="noreferrer"
+            title="Github"
+            theme={{ ...state.themeLoaded }}
+          >
+            <GitHub />
+          </IconLink>
+          <IconLink
+            href="mailto:nick.monaco15@gmail.com"
+            title="Email"
+            theme={{ ...state.themeLoaded }}
+          >
+            <Mail />
+          </IconLink>
+          <IconLink
+            href="/fm"
+            active={path && path.includes("fm")}
+            title="Music"
+            theme={{ ...state.themeLoaded }}
+          >
+            <Speaker />
+          </IconLink>
+        </p>
+      </Content>
+    </SiteHeader>
+  )
+}
 
 export default Header

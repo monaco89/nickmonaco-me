@@ -1,13 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
-import { ThemeProvider } from "@emotion/react"
 import Header from "./header"
-// import MediaPlayer from "./MediaPlayer"
 import ThemeButton from "./ThemeButton"
-import { light } from "../constants/globalTheme"
+import { GlobalStateContext } from "../utils/context"
 
 import "./layout.css"
+
+const Body = styled.div`
+  background: ${(props) => props.theme.background};
+  height: 100%;
+`
 
 const Content = styled.div`
   margin: 0 auto;
@@ -20,40 +23,45 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  background: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.color};
 `
 
-const Layout = ({ path, children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+const Layout = ({ path, children }) => {
+  const state = useContext(GlobalStateContext)
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
-    render={(data) => (
-      <ThemeProvider theme={light}>
-        <Header siteTitle={data.site.siteMetadata.title} path={path} />
-        <Content>
-          <main>{children}</main>
-          <div>
-            {/* {path !== "/fm/" && <MediaPlayer />} */}
-            <ThemeButton />
-            <Footer>
-              <p>
-                ©
-                {new Date().getFullYear()}
-                {' '}
-                Nick Monaco
-              </p>
-            </Footer>
-          </div>
-        </Content>
-      </ThemeProvider>
-    )}
-  />
-)
+      `}
+      render={(data) => (
+        <Body theme={{ ...state.themeLoaded }}>
+          <Header siteTitle={data.site.siteMetadata.title} path={path} />
+          <Content>
+            <main>{children}</main>
+            <div>
+              <ThemeButton />
+              <Footer theme={{ ...state.themeLoaded }}>
+                <p>
+                  ©
+                  {new Date().getFullYear()}
+                  {' '}
+                  Nick Monaco
+                </p>
+              </Footer>
+            </div>
+          </Content>
+        </Body>
+      )}
+    />
+  )
+}
 
 export default Layout

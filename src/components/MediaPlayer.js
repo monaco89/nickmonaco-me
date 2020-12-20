@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import styled from "@emotion/styled"
 import { Speaker } from "react-feather"
 import { GlobalDispatchContext, GlobalStateContext } from "../utils/context"
-import MiniCassette from "./MiniCassette"
 
 const IconLink = styled.button`
   color: black;
@@ -41,7 +40,7 @@ const MediaPlayer = () => {
   return (
     <>
       {state.player ? (
-        <MiniCassette />
+        <p>player goes here...</p>
       ) : (
         <IconLink
           type="button"
