@@ -44,10 +44,10 @@ const Layout = ({ path, children }) => {
       render={(data) => (
         <Body theme={{ ...state.themeLoaded }}>
           <Header siteTitle={data.site.siteMetadata.title} path={path} />
+          <ThemeButton />
           <Content>
             <main>{children}</main>
             <div>
-              <ThemeButton />
               <Footer theme={{ ...state.themeLoaded }}>
                 <p>
                   ©
