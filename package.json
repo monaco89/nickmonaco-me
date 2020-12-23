@@ -9,6 +9,7 @@
     "@emotion/react": "^11.1.2",
     "@emotion/styled": "^10.0.27",
     "@testing-library/cypress": "^7.0.2",
+    "axios": "^0.21.1",
     "eslint-plugin-cypress": "^2.11.1",
     "gatsby": "^2.20.12",
     "gatsby-image": "^2.3.1",

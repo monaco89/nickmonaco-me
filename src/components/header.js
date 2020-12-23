@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import { GitHub, Rss, Speaker, Mail } from "react-feather"
+import { GitHub, Rss, Speaker, Mail, Book } from "react-feather"
 import { GlobalStateContext } from "../utils/context"
 
 const Content = styled.div`
@@ -103,6 +103,14 @@ const Header = ({ path }) => {
             theme={{ ...state.themeLoaded }}
           >
             <Speaker />
+          </IconLink>
+          <IconLink
+            href="/books"
+            active={path && path.includes("books")}
+            title="Books"
+            theme={{ ...state.themeLoaded }}
+          >
+            <Book />
           </IconLink>
         </p>
       </Content>
