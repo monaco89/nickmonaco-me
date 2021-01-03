@@ -4,7 +4,13 @@ import styled from "@emotion/styled"
 import GoogleMapReact from "google-map-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Content, MarkdownContent, MapPinIcon } from "../components/components"
+import Video from "../components/Video"
+import {
+  Content,
+  MarkdownContent,
+  MapPinIcon,
+  HeaderDate,
+} from "../components/components"
 import { GlobalStateContext } from "../utils/context"
 
 const Header = styled.h1`
@@ -44,44 +50,48 @@ const MapsContainer = styled.div`
 
 export default ({ data }) => {
   const state = useContext(GlobalStateContext)
-  const post = data.markdownRemark
+  const { frontmatter, html, excerpt, fields } = data.markdownRemark
 
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={frontmatter.title}
+        description={frontmatter.description || excerpt}
       />
       <Content>
         <Header theme={{ ...state.themeLoaded }}>
           {/* <MapPinIcon /> */}
-          {post.frontmatter.title}
+          {frontmatter.title}
         </Header>
+        <HeaderDate>
+          {frontmatter.date} - {fields.readingTime.text}
+        </HeaderDate>
         <MapsContainer>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: process.env.GOOGLE_MAPS_API_KEY,
             }}
             defaultCenter={{
-              lat: post.frontmatter.lat,
-              lng: post.frontmatter.lng,
+              lat: frontmatter.lat,
+              lng: frontmatter.lng,
             }}
             defaultZoom={15}
           >
             <MapLocationTag
               theme={{ ...state.themeLoaded }}
-              lat={post.frontmatter.lat}
-              lng={post.frontmatter.lng}
+              lat={frontmatter.lat}
+              lng={frontmatter.lng}
             >
               <MapPinIcon />
-              {post.frontmatter.title}
+              {frontmatter.title}
             </MapLocationTag>
           </GoogleMapReact>
         </MapsContainer>
         <MarkdownContent
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: html }}
           style={{ color: state.themeLoaded.color }}
         />
+        <Video videoSrcURL={frontmatter.videoSourceUrl} />
       </Content>
     </Layout>
   )
@@ -98,6 +108,12 @@ export const pageQuery = graphql`
         title
         lat
         lng
+        videoSourceUrl
+      }
+      fields {
+        readingTime {
+          text
+        }
       }
     }
   }

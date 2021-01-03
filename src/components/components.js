@@ -51,6 +51,12 @@ export const MarkdownContent = styled.div`
   }
 `
 
+export const HeaderDate = styled.h3`
+  margin-top: 10px;
+  color: #606060;
+  font-size: 1.1rem;
+`
+
 export const LocationTag = styled.h2`
   font-size: 1.4rem;
   box-shadow: ${(props) => props.theme.boxShadow};

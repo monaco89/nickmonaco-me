@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Content, MarkdownContent } from "../components/components"
+import { Content, MarkdownContent, HeaderDate } from "../components/components"
 
 const MarkedHeader = styled.h1`
   display: inline;
@@ -14,11 +14,6 @@ const MarkedHeader = styled.h1`
     rgba(255, 250, 150, 0.8) 100%,
     rgba(255, 250, 150, 0.25)
   );
-`
-
-const HeaderDate = styled.h3`
-  margin-top: 10px;
-  color: #606060;
 `
 
 export default ({ data }) => {
