@@ -674,6 +674,10 @@ a::selection {
   animation-timing-function: linear;
 }
 
+.gatsby-resp-image-image {
+  border-radius: 8px;
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

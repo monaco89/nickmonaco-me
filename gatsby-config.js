@@ -32,10 +32,10 @@ module.exports = {
         }`,
         serialize: ({ site, allSitePage }) =>
           allSitePage.nodes.map((node) => ({
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: `yearly`,
-              priority: 0.7,
-            })),
+            url: `${site.siteMetadata.siteUrl}${node.path}`,
+            changefreq: `yearly`,
+            priority: 0.7,
+          })),
       },
     },
     {
@@ -65,6 +65,16 @@ module.exports = {
             options: {
               aliases: { sh: "bash", js: "javascript" },
               showLineNumbers: true,
+            },
+          },
+          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: false,
+              sizeByPixelDensity: true,
+              showCaptions: true,
             },
           },
         ],
