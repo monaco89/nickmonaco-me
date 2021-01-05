@@ -3,11 +3,17 @@ import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import { GitHub, Rss, Speaker, Mail, Book, Aperture } from "react-feather"
 import { GlobalStateContext } from "../utils/context"
+import Logo from "../images/svg/Logo.svg"
 
 const Content = styled.div`
   max-width: 860px;
   padding: 1rem 1.0875rem;
   font-size: 1.2rem;
+`
+
+const FlexBox = styled.p`
+  display: inline-flex;
+  flex-wrap: wrap;
 `
 
 const NavLink = styled(Link)`
@@ -31,7 +37,7 @@ const NavLink = styled(Link)`
 const IconLink = styled.a`
   margin-left: 15px;
   text-decoration: none;
-  display: inline-block;
+  // display: inline-block;
   position: relative;
   transition: all 0.2s linear;
   box-shadow: ${(props) => props.theme.boxShadow};
@@ -39,6 +45,7 @@ const IconLink = styled.a`
   color: ${(props) => (props.active ? "#808c99" : props.theme.color)};
   padding: 10px;
   border-radius: 8px;
+  justify-content: space-around;
 
   :hover {
     box-shadow: ${(props) => props.theme.boxShadowInset};
@@ -51,6 +58,10 @@ const IconLink = styled.a`
 const HomeLink = styled(NavLink)`
   margin-left: 0;
   font-weight: Bold;
+  width: 80px;
+  // background: none;
+  // box-shadow: none;
+  padding: 5px 10px 5px 10px;
 `
 
 const SiteHeader = styled.header`
@@ -60,15 +71,20 @@ const SiteHeader = styled.header`
   justify-content: center;
 `
 
+const LogoIcon = styled(Logo)`
+  width: 100%;
+  height: auto;
+`
+
 const Header = ({ path }) => {
   const state = useContext(GlobalStateContext)
 
   return (
     <SiteHeader>
       <Content>
-        <p>
+        <FlexBox>
           <HomeLink to="/" theme={{ ...state.themeLoaded }}>
-            NM
+            <LogoIcon />
           </HomeLink>
           {/* <NavLink to="/blog">Blog</NavLink> */}
           <IconLink
@@ -120,7 +136,7 @@ const Header = ({ path }) => {
           >
             <Aperture />
           </IconLink>
-        </p>
+        </FlexBox>
       </Content>
     </SiteHeader>
   )

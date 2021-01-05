@@ -41,7 +41,7 @@ const MapLocationTag = styled.p`
 
 const MapsContainer = styled.div`
   height: 50vh;
-  width: 57vw;
+  width: 50vw;
 
   @media (max-width: 767px) {
     width: 80vw;
