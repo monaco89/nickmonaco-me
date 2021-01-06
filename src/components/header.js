@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import { GitHub, Rss, Speaker, Mail, Book, Aperture } from "react-feather"
+import { GitHub, Rss, Speaker, Mail, Aperture } from "react-feather"
 import { GlobalStateContext } from "../utils/context"
 import Logo from "../images/svg/Logo.svg"
 
@@ -120,14 +120,14 @@ const Header = ({ path }) => {
           >
             <Speaker />
           </IconLink>
-          <IconLink
+          {/* <IconLink
             href="/books"
             active={path && path.includes("books")}
             title="Books"
             theme={{ ...state.themeLoaded }}
           >
             <Book />
-          </IconLink>
+          </IconLink> */}
           <IconLink
             href="/drone"
             active={path && path.includes("drone")}
