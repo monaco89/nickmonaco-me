@@ -30,8 +30,10 @@ const SubTitle = styled.h2`
 `
 
 const Description = styled.p`
-  padding: 0;
+  padding: 8px;
   font-size: 1rem;
+  box-shadow: ${(props) => props.theme.boxShadowInset};
+  border-radius: 8px;
 `
 
 const NameHeader = styled.h1`
@@ -81,7 +83,9 @@ const LandingBio = () => {
             <ProfilePicture src={Profile} alt="Nick Monaco Smiling" />
             <NameHeader>{data.site.siteMetadata.title}</NameHeader>
             <SubTitle>{data.site.siteMetadata.subtitle}</SubTitle>
-            <Description>Based in Washington, D.C.</Description>
+            <Description theme={{ ...state.themeLoaded }}>
+              Based in Washington, D.C.
+            </Description>
             <ResumeLink
               href="nickmonacoresume.pdf"
               target="_blank"

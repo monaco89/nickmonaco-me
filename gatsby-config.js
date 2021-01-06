@@ -32,10 +32,10 @@ module.exports = {
         }`,
         serialize: ({ site, allSitePage }) =>
           allSitePage.nodes.map((node) => ({
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: `yearly`,
-              priority: 0.7,
-            })),
+            url: `${site.siteMetadata.siteUrl}${node.path}`,
+            changefreq: `yearly`,
+            priority: 0.7,
+          })),
       },
     },
     {
@@ -67,6 +67,16 @@ module.exports = {
               showLineNumbers: true,
             },
           },
+          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: false,
+              sizeByPixelDensity: true,
+              showCaptions: true,
+            },
+          },
         ],
       },
     },
@@ -95,6 +105,14 @@ module.exports = {
     //     },
     //   },
     // },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /src\/images\/svg\/.*\.svg/,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -129,7 +147,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/images/m2.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.ico`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

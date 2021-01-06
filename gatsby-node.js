@@ -32,6 +32,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
+  const droneLocationTemplate = path.resolve(`src/templates/drone-location.js`)
   return graphql(`
     {
       allMarkdownRemark {
@@ -49,19 +50,28 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
     result.data.allMarkdownRemark.edges
       .filter(({ node }) => !node.frontmatter.draft)
       .forEach(({ node }) => {
-        createPage({
-          path: node.frontmatter.path,
-          component: blogPostTemplate,
-          slug: node.fields.slug,
-          context: {},
-        })
+        if (node.frontmatter.path.startsWith("/drone")) {
+          createPage({
+            path: node.frontmatter.path,
+            component: droneLocationTemplate,
+            slug: node.fields.slug,
+            context: {},
+          })
+        } else {
+          createPage({
+            path: node.frontmatter.path,
+            component: blogPostTemplate,
+            slug: node.fields.slug,
+            context: {},
+          })
+        }
       })
   })
 }
