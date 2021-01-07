@@ -4,26 +4,7 @@ import styled from "@emotion/styled"
 import { FileText } from "react-feather"
 import Profile from "../images/me.jpeg"
 import { GlobalStateContext } from "../utils/context"
-
-const Container = styled.div`
-  text-align: center;
-  box-shadow: ${(props) => props.theme.boxShadow};
-  background: ${(props) => props.theme.background};
-  color: ${(props) => props.theme.color};
-  padding: 50px;
-  border-radius: 8px;
-
-  @media (max-width: 767px) {
-    padding: 25px 0px 30px 0px;
-  }
-`
-const OuterContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  height: 78vh;
-`
+import { Container, OuterContainer } from "./components"
 
 const SubTitle = styled.h2`
   padding: 0;
@@ -39,6 +20,10 @@ const Description = styled.p`
 const NameHeader = styled.h1`
   font-size: 3.5rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 767px) {
+    font-size: 2.5rem;
+  }
 `
 
 const ProfilePicture = styled.img`
@@ -91,9 +76,7 @@ const LandingBio = () => {
               target="_blank"
               theme={{ ...state.themeLoaded }}
             >
-              <FileText style={{ height: "15px" }} />
-              {' '}
-              Resume
+              <FileText style={{ height: "15px" }} /> Resume
             </ResumeLink>
           </Container>
         </OuterContainer>
