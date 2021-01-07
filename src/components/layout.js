@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Header from "./header"
-import ThemeButton from "./ThemeButton"
 import { GlobalStateContext } from "../utils/context"
 
 import "./layout.css"
@@ -44,17 +43,11 @@ const Layout = ({ path, children }) => {
       render={(data) => (
         <Body theme={{ ...state.themeLoaded }}>
           <Header siteTitle={data.site.siteMetadata.title} path={path} />
-          <ThemeButton />
           <Content>
             <main>{children}</main>
             <div>
               <Footer theme={{ ...state.themeLoaded }}>
-                <p>
-                  ©
-                  {new Date().getFullYear()}
-                  {' '}
-                  Nick Monaco
-                </p>
+                <p>©{new Date().getFullYear()} Nick Monaco</p>
               </Footer>
             </div>
           </Content>

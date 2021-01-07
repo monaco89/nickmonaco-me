@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { GlobalStateContext } from "../utils/context"
-import Seneca from "../images/drone/seneca/seneca.jpg"
 import {
   OuterContainer,
   Container,
@@ -11,40 +11,86 @@ import {
   LocationPicture,
 } from "../components/components"
 
-const Location = ({ location, url }) => {
+const Location = ({ location, url, img }) => {
   const state = useContext(GlobalStateContext)
 
   return (
     <Container theme={{ ...state.themeLoaded }}>
       <LocationTag theme={{ ...state.themeLoaded }}>
-        <a href={`drone/${url}`}>
+        <Link to={url}>
           <MapPinIcon />
           {location}
-        </a>
+        </Link>
       </LocationTag>
-      <LocationPicture src={Seneca} alt={location} />
+      <LocationPicture fluid={img} alt={location} />
     </Container>
   )
 }
 
-const DroneLocations = () => {
+const DronePage = ({ data, path }) => {
   const state = useContext(GlobalStateContext)
-
+  // console.log(data)
   return (
-    <OuterContainer theme={{ ...state.themeLoaded }}>
-      <h1>Drone Photography</h1>
-      <p>Click locations to see more.</p>
-      <Location location="Seneca Creek State Park, MD" url="seneca" />
-    </OuterContainer>
+    <Layout path={path}>
+      <SEO
+        title="Drone"
+        keywords={[`nick`, `monaco`, `drone`, `photography`]}
+      />
+      <OuterContainer theme={{ ...state.themeLoaded }}>
+        <h1>Drone Photography</h1>
+        <p>Click locations to see more.</p>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <Location
+            key={node.frontmatter.title}
+            location={node.frontmatter.title}
+            url={node.frontmatter.path}
+            img={node.frontmatter.heroImg.childImageSharp.fluid}
+          />
+        ))}
+      </OuterContainer>
+    </Layout>
   )
 }
 
-// TODO Use Gatsby images, query
-const DronePage = ({ path }) => (
-  <Layout path={path}>
-    <SEO title="Drone" keywords={[`nick`, `monaco`, `drone`, `photography`]} />
-    <DroneLocations />
-  </Layout>
-)
-
 export default DronePage
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {fileAbsolutePath: {regex: "/content/drone/.*\\.md$/"}}
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+            rawDate: date
+            path
+            heroImg {
+              childImageSharp {
+                fluid(maxWidth: 1920, webpQuality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          fields {
+            slug
+            # readingTime {
+            #   text
+            # }
+          }
+          # excerpt
+        }
+      }
+    }
+  }
+`

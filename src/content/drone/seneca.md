@@ -6,6 +6,7 @@ path: "/drone/seneca"
 lat: 39.1426609
 lng: -77.2524052
 videoSourceUrl: https://www.youtube.com/embed/hXhGpuWATto
+heroImg: "../../images/drone/seneca/seneca.jpg"
 ---
 
 ![Clopper Lake](../../images/drone/seneca/seneca.jpg)
