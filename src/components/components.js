@@ -22,7 +22,7 @@ export const Container = styled.div`
   border-radius: 8px;
 
   @media (max-width: 767px) {
-    padding: 25px 0px 30px 0px;
+    padding: 25px 10px 30px 10px;
   }
 `
 
