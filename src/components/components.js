@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { MapPin } from "react-feather"
+import Img from "gatsby-image"
 
 export const OuterContainer = styled.div`
   display: flex;
@@ -74,6 +75,12 @@ export const LocationTag = styled.h2`
   :hover {
     box-shadow: ${(props) => props.theme.boxShadowInset};
   }
+
+  @media (max-width: 767px) {
+    white-space: normal;
+    max-width: 90%;
+    line-height: 30px;
+  }
 `
 
 export const MapPinIcon = styled(MapPin)`
@@ -81,7 +88,7 @@ export const MapPinIcon = styled(MapPin)`
   margin-right: 10px;
 `
 
-export const LocationPicture = styled.img`
+export const LocationPicture = styled(Img)`
   width: 100%;
   height: auto;
   border-radius: 8px;

@@ -4,6 +4,7 @@ import styled from "@emotion/styled"
 import { GitHub, Rss, Speaker, Mail, Aperture } from "react-feather"
 import { GlobalStateContext } from "../utils/context"
 import Logo from "../images/svg/Logo.svg"
+import ThemeButton from "./ThemeButton"
 
 const Content = styled.div`
   max-width: 860px;
@@ -37,31 +38,29 @@ const NavLink = styled(Link)`
 const IconLink = styled.a`
   margin-left: 15px;
   text-decoration: none;
-  // display: inline-block;
   position: relative;
   transition: all 0.2s linear;
-  box-shadow: ${(props) => props.theme.boxShadow};
   background: ${(props) => props.theme.background};
+  box-shadow: ${(props) =>
+    props.active ? props.theme.boxShadowInset : props.theme.boxShadow};
   color: ${(props) => (props.active ? "#808c99" : props.theme.color)};
   padding: 10px;
   border-radius: 8px;
   justify-content: space-around;
+  margin-bottom: 20px;
 
   :hover {
     box-shadow: ${(props) => props.theme.boxShadowInset};
     color: #808c99;
   }
-
-  box-shadow: ${(props) => props.active && props.theme.boxShadowInset};
 `
 
 const HomeLink = styled(NavLink)`
   margin-left: 0;
   font-weight: Bold;
   width: 80px;
-  // background: none;
-  // box-shadow: none;
   padding: 5px 10px 5px 10px;
+  max-height: 46px;
 `
 
 const SiteHeader = styled.header`
@@ -136,6 +135,7 @@ const Header = ({ path }) => {
           >
             <Aperture />
           </IconLink>
+          <ThemeButton />
         </FlexBox>
       </Content>
     </SiteHeader>
