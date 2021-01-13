@@ -8,7 +8,7 @@ import "./layout.css"
 
 const Body = styled.div`
   background: ${(props) => props.theme.background};
-  height: 100%;
+  height: 100vh;
 `
 
 const Content = styled.div`
@@ -22,6 +22,7 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  font-size: 0.9rem;
   background: ${(props) => props.theme.background};
   color: ${(props) => props.theme.color};
 `
