@@ -18,7 +18,7 @@ export const Container = styled.div`
   box-shadow: ${(props) => props.theme.boxShadow};
   background: ${(props) => props.theme.background};
   color: ${(props) => props.theme.color};
-  padding: 50px 50px 20px 50px;
+  padding: 50px;
   border-radius: 8px;
 
   @media (max-width: 767px) {
