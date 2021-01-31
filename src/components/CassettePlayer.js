@@ -60,6 +60,7 @@ const Buttons = styled.div`
 
 const Button = styled.button`
   background: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.buttonColor};
   border-right: none;
   border-left: 1px solid black;
   border-top: none;
