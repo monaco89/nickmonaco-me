@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import { GitHub, Rss, Speaker, Mail, Aperture, Book } from "react-feather"
+import { GitHub, Rss, Mail, Aperture, Book, Radio } from "react-feather"
 import { GlobalStateContext } from "../utils/context"
 import Logo from "../images/svg/Logo.svg"
 import ThemeButton from "./ThemeButton"
@@ -117,7 +117,7 @@ const Header = ({ path }) => {
             title="Music"
             theme={{ ...state.themeLoaded }}
           >
-            <Speaker />
+            <Radio />
           </IconLink>
           <IconLink
             href="https://www.goodreads.com/user/show/77669630-nick-monaco"

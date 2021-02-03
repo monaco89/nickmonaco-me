@@ -654,6 +654,31 @@ a::selection {
   }
 }
 
+@-moz-keyframes scale {
+  from {
+    -moz-transform: scale(1);
+  }
+  to {
+    -moz-transform: scale(1.2);
+  }
+}
+@-webkit-keyframes scale {
+  from {
+    -webkit-transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.2);
+  }
+}
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
 .spinner {
   -webkit-animation-name: spin;
   -webkit-animation-duration: 4000ms;
@@ -672,6 +697,76 @@ a::selection {
   animation-duration: 4000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+.scaler {
+  -webkit-animation: pulsate 1s ease infinite;
+  -moz-animation: pulsate 1s ease infinite;
+  animation: pulsate 1s ease infinite;
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    height: 75px;
+    width: 75px;
+  }
+  89% {
+    height: 80px;
+    width: 80px;
+  }
+  90% {
+    height: 82px;
+    width: 82px;
+  }
+  /* 80% {
+    background: green;
+  } */
+  100% {
+    height: 84px;
+    width: 84px;
+  }
+}
+@-moz-keyframes pulsate {
+  0% {
+    height: 75px;
+    width: 75px;
+  }
+  89% {
+    height: 80px;
+    width: 80px;
+  }
+  90% {
+    height: 82px;
+    width: 82px;
+  }
+  /* 80% {
+    background: green;
+  } */
+  100% {
+    height: 84px;
+    width: 84px;
+  }
+}
+@keyframes pulsate {
+  0% {
+    height: 75px;
+    width: 75px;
+  }
+  89% {
+    height: 80px;
+    width: 80px;
+  }
+  90% {
+    height: 82px;
+    width: 82px;
+  }
+  /* 80% {
+    background: green;
+  } */
+  100% {
+    height: 84px;
+    width: 84px;
+  }
 }
 
 .gatsby-resp-image-image {
