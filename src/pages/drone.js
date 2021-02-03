@@ -15,7 +15,10 @@ const Location = ({ location, url, img }) => {
   const state = useContext(GlobalStateContext)
 
   return (
-    <Container theme={{ ...state.themeLoaded }}>
+    <Container
+      theme={{ ...state.themeLoaded }}
+      style={{ marginBottom: "30px", width: "100%" }}
+    >
       <LocationTag theme={{ ...state.themeLoaded }}>
         <Link to={url}>
           <MapPinIcon />
