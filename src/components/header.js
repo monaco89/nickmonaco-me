@@ -105,7 +105,7 @@ const Header = ({ path }) => {
             <GitHub />
           </IconLink>
           <IconLink
-            href="mailto:nick.monaco15@gmail.com"
+            href="mailto:nickmonacodev@gmail.com"
             title="Email"
             theme={{ ...state.themeLoaded }}
           >
