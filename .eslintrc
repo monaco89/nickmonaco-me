@@ -2,6 +2,7 @@
   "env": {
     "browser": true
   },
+  "plugins": ["@emotion/eslint-plugin"],
   "extends": ["airbnb", "prettier"],
   "rules": {
     "react/jsx-filename-extension": "off",
