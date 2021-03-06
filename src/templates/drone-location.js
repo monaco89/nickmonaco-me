@@ -70,7 +70,7 @@ export default ({ data }) => {
         <MapsContainer>
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: process.env.GOOGLE_MAPS_API_KEY,
+              key: process.env.GATSBY_GOOGLE_MAPS_API_KEY,
             }}
             defaultCenter={{
               lat: frontmatter.lat,
