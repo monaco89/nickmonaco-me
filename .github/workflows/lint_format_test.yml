@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [12.x]
+        node: ['14.x']
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-          node: ${{ matrix.node }}
+          node-version: ${{ matrix.node }}
       - name: Install Dependencies
         run: |
           yarn install --non-interactive
