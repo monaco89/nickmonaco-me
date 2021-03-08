@@ -4,14 +4,12 @@ phases:
     runtime-versions:
       nodejs: 12.x
     commands:
-      # - "touch .npmignore"
       - npm install -g gatsby
   pre_build:
     commands:
       - yarn install --frozen-lockfile
   build:
     commands:
-      # - printenv > .env
       - CI=true yarn build
       # - "yarn test:e2e:ci"
   post_build:
@@ -22,7 +20,7 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-cache:
-  paths:
-    - ".cache/*"
-    - "public/*"
+# cache:
+#   paths:
+#     - ".cache/*"
+#     - "public/*"
