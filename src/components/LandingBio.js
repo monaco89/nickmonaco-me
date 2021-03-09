@@ -72,7 +72,7 @@ const LandingBio = () => {
               Based in Washington, D.C.
             </Description>
             <ResumeLink
-              href="nickmonacoresume.pdf"
+              href="https://files.nickmonaco.me/NickMonacoResume.pdf"
               target="_blank"
               theme={{ ...state.themeLoaded }}
             >

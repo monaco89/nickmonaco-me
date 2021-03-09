@@ -10,7 +10,7 @@ describe("Renders Resume Link", () => {
       .should(
         "have.attr",
         "href",
-        "/static/NickMonacoResume_20200201-c8acbfefd13d82c9330947ca493fbc74.pdf"
+        "https://files.nickmonaco.me/NickMonacoResume.pdf"
       )
   })
 })
