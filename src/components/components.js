@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { MapPin } from "react-feather"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export const OuterContainer = styled.div`
   display: flex;
@@ -88,7 +88,7 @@ export const MapPinIcon = styled(MapPin)`
   margin-right: 10px;
 `
 
-export const LocationPicture = styled(Img)`
+export const LocationPicture = styled(GatsbyImage)`
   width: 100%;
   height: auto;
   border-radius: 8px;

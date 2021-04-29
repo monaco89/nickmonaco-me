@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Link, graphql } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { GlobalStateContext } from "../utils/context"
@@ -13,6 +14,7 @@ import {
 
 const Location = ({ location, url, img }) => {
   const state = useContext(GlobalStateContext)
+  const gatsbyImage = getImage(img)
 
   return (
     <Container
@@ -25,14 +27,14 @@ const Location = ({ location, url, img }) => {
           {location}
         </Link>
       </LocationTag>
-      <LocationPicture fluid={img} alt={location} />
+      <LocationPicture image={gatsbyImage} alt={location} />
     </Container>
   )
 }
 
 const DronePage = ({ data, path }) => {
   const state = useContext(GlobalStateContext)
-  // console.log(data)
+
   return (
     <Layout path={path}>
       <SEO
@@ -47,7 +49,7 @@ const DronePage = ({ data, path }) => {
             key={node.frontmatter.title}
             location={node.frontmatter.title}
             url={node.frontmatter.path}
-            img={node.frontmatter.heroImg.childImageSharp.fluid}
+            img={node.frontmatter.heroImg}
           />
         ))}
       </OuterContainer>
@@ -79,9 +81,10 @@ export const query = graphql`
             path
             heroImg {
               childImageSharp {
-                fluid(maxWidth: 1920, webpQuality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }

@@ -8,7 +8,7 @@ export const dark = {
 }
 
 export const light = {
-  color: "black",
+  color: "rgb(38, 38, 39)",
   boxShadow: "8px 8px 16px 0px rgba(0, 0, 0, 0.06), -8px -8px 16px 0px #fff",
   background: "#f2f4f8",
   boxShadowInset:

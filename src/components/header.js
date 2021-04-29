@@ -1,9 +1,8 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import { GitHub, Rss, Mail, Aperture, Book, Radio } from "react-feather"
+import { GitHub, Rss, Mail, Aperture, Book, Radio, Home } from "react-feather"
 import { GlobalStateContext } from "../utils/context"
-import Logo from "../images/svg/Logo.svg"
 import ThemeButton from "./ThemeButton"
 
 const Content = styled.div`
@@ -57,9 +56,7 @@ const IconLink = styled.a`
 
 const HomeLink = styled(NavLink)`
   margin-left: 0;
-  font-weight: Bold;
-  width: 80px;
-  padding: 5px 10px 5px 10px;
+  padding: 10px;
   max-height: 46px;
 `
 
@@ -70,11 +67,6 @@ const SiteHeader = styled.header`
   justify-content: center;
 `
 
-const LogoIcon = styled(Logo)`
-  width: 100%;
-  height: auto;
-`
-
 const Header = ({ path }) => {
   const state = useContext(GlobalStateContext)
 
@@ -83,7 +75,7 @@ const Header = ({ path }) => {
       <Content>
         <FlexBox>
           <HomeLink to="/" theme={{ ...state.themeLoaded }}>
-            <LogoIcon />
+            <Home />
           </HomeLink>
           {/* <NavLink to="/blog">Blog</NavLink> */}
           <IconLink

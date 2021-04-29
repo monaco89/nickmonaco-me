@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import { StaticQuery, graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import styled from "@emotion/styled"
 import { FileText } from "react-feather"
-import Profile from "../images/me.jpeg"
 import { GlobalStateContext } from "../utils/context"
 import { Container, OuterContainer } from "./components"
 
@@ -26,11 +26,13 @@ const NameHeader = styled.h1`
   }
 `
 
-const ProfilePicture = styled.img`
+const ProfilePictureContainer = styled.div`
   border-radius: 50%;
-  height: 20vh;
+  height: auto;
   width: 20vh;
   overflow: hidden;
+  display: inline-flex;
+  margin-bottom: 1rem;
 `
 
 const ResumeLink = styled.a`
@@ -65,7 +67,9 @@ const LandingBio = () => {
       render={(data) => (
         <OuterContainer>
           <Container theme={{ ...state.themeLoaded }}>
-            <ProfilePicture src={Profile} alt="Nick Monaco Smiling" />
+            <ProfilePictureContainer>
+              <StaticImage src="../images/me.jpg" alt="Nick Monaco Smiling" />
+            </ProfilePictureContainer>
             <NameHeader>{data.site.siteMetadata.title}</NameHeader>
             <SubTitle>{data.site.siteMetadata.subtitle}</SubTitle>
             <Description theme={{ ...state.themeLoaded }}>
