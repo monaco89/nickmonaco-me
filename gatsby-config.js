@@ -12,32 +12,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/sitemap.xml`,
-        query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-  
-            allSitePage {
-              nodes {
-                path
-              }
-            }
-        }`,
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.nodes.map((node) => ({
-            url: `${site.siteMetadata.siteUrl}${node.path}`,
-            changefreq: `yearly`,
-            priority: 0.7,
-          })),
-      },
-    },
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
