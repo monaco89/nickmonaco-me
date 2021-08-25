@@ -1,17 +1,17 @@
-import React, { useContext } from "react"
-import { graphql } from "gatsby"
-import styled from "@emotion/styled"
-import GoogleMapReact from "google-map-react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Video from "../components/Video"
+import React, { useContext } from 'react';
+import { graphql } from 'gatsby';
+import styled from '@emotion/styled';
+import GoogleMapReact from 'google-map-react';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Video from '../components/Video';
 import {
   Content,
   MarkdownContent,
   MapPinIcon,
   HeaderDate,
-} from "../components/components"
-import { GlobalStateContext } from "../utils/context"
+} from '../components/components';
+import { GlobalStateContext } from '../utils/context';
 
 const Header = styled.h1`
   font-size: 1.6rem;
@@ -23,7 +23,7 @@ const Header = styled.h1`
   background-image: linear-gradient(to left, #fcb045, #fd1d1d, #833ab4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-`
+`;
 
 const MapLocationTag = styled.p`
   font-size: 1.2rem;
@@ -37,7 +37,7 @@ const MapLocationTag = styled.p`
   background-image: linear-gradient(to left, #fcb045, #fd1d1d, #833ab4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-`
+`;
 
 const MapsContainer = styled.div`
   height: 50vh;
@@ -47,11 +47,11 @@ const MapsContainer = styled.div`
   @media (max-width: 767px) {
     width: 80vw;
   }
-`
+`;
 
-export default ({ data }) => {
-  const state = useContext(GlobalStateContext)
-  const { frontmatter, html, excerpt, fields } = data.markdownRemark
+const DroneLocation = ({ data }) => {
+  const state = useContext(GlobalStateContext);
+  const { frontmatter, html, excerpt, fields } = data.markdownRemark;
 
   return (
     <Layout>
@@ -95,11 +95,13 @@ export default ({ data }) => {
         <Video videoSrcURL={frontmatter.videoSourceUrl} />
       </Content>
     </Layout>
-  )
-}
+  );
+};
+
+export default DroneLocation;
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       excerpt(pruneLength: 160)
@@ -118,4 +120,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

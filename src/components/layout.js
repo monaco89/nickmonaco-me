@@ -1,22 +1,22 @@
-import React, { useContext } from "react"
-import { StaticQuery, graphql } from "gatsby"
-import styled from "@emotion/styled"
-import Header from "./header"
-import { GlobalStateContext } from "../utils/context"
+import React, { useContext } from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import styled from '@emotion/styled';
+import Header from './header';
+import { GlobalStateContext } from '../utils/context';
 
-import "./layout.css"
+import './layout.css';
 
 const Body = styled.div`
   background: ${(props) => props.theme.background};
-  height: 100vh;
-`
+  height: 100%;
+`;
 
 const Content = styled.div`
   margin: 0 auto;
   max-width: 860px;
   padding: 0 1.0875rem 1rem;
   padding-top: 0;
-`
+`;
 
 const Footer = styled.footer`
   display: flex;
@@ -25,11 +25,11 @@ const Footer = styled.footer`
   font-size: 0.9rem;
   background: ${(props) => props.theme.background};
   color: ${(props) => props.theme.color};
-`
+`;
 
 const Layout = ({ path, children }) => {
-  const state = useContext(GlobalStateContext)
-
+  const state = useContext(GlobalStateContext);
+  console.log(state);
   return (
     <StaticQuery
       query={graphql`
@@ -55,7 +55,7 @@ const Layout = ({ path, children }) => {
         </Body>
       )}
     />
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

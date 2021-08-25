@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql } from "gatsby"
-import styled from "@emotion/styled"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Content, MarkdownContent, HeaderDate } from "../components/components"
+import React from 'react';
+import { graphql } from 'gatsby';
+import styled from '@emotion/styled';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { Content, MarkdownContent, HeaderDate } from '../components/components';
 
 const MarkedHeader = styled.h1`
   display: inline;
@@ -14,10 +14,10 @@ const MarkedHeader = styled.h1`
     rgba(255, 250, 150, 0.8) 100%,
     rgba(255, 250, 150, 0.25)
   );
-`
+`;
 
-export default ({ data }) => {
-  const post = data.markdownRemark
+const BlogPost = ({ data }) => {
+  const post = data.markdownRemark;
   return (
     <Layout>
       <SEO
@@ -32,11 +32,13 @@ export default ({ data }) => {
         <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
       </Content>
     </Layout>
-  )
-}
+  );
+};
+
+export default BlogPost;
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       excerpt(pruneLength: 160)
@@ -52,4 +54,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
