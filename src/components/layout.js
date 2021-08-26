@@ -8,7 +8,7 @@ import './layout.css';
 
 const Body = styled.div`
   background: ${(props) => props.theme.background};
-  height: 100%;
+  min-height: 100vh;
 `;
 
 const Content = styled.div`
@@ -29,7 +29,7 @@ const Footer = styled.footer`
 
 const Layout = ({ path, children }) => {
   const state = useContext(GlobalStateContext);
-  console.log(state);
+
   return (
     <StaticQuery
       query={graphql`

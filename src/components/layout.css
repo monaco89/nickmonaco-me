@@ -113,7 +113,7 @@ hr {
   height: 0;
   overflow: visible;
 }
-button,
+/* button,
 input,
 optgroup,
 select,
@@ -163,11 +163,11 @@ legend {
   max-width: 100%;
   padding: 0;
   white-space: normal;
-}
-textarea {
+} */
+/* textarea {
   overflow: auto;
-}
-[type='checkbox'],
+} */
+/* [type='checkbox'],
 [type='radio'] {
   box-sizing: border-box;
   padding: 0;
@@ -191,18 +191,11 @@ textarea {
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
-}
+} */
 html {
   /* font: 112.5%/1.45em georgia, serif; */
   box-sizing: border-box;
-  height: 100%;
-}
-#___gatsby,
-#gatsby-focus-wrapper {
-  height: 100%;
-}
-#outer {
-  min-height: 100%;
+  overflow: auto;
 }
 * {
   box-sizing: inherit;
@@ -769,10 +762,4 @@ a::selection {
 
 .gatsby-resp-image-image {
   border-radius: 8px;
-}
-
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
-  }
 }

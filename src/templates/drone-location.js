@@ -92,7 +92,9 @@ const DroneLocation = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: html }}
           style={{ color: state.themeLoaded.color }}
         />
-        <Video videoSrcURL={frontmatter.videoSourceUrl} />
+        {frontmatter.videoSourceUrl && (
+          <Video videoSrcURL={frontmatter.videoSourceUrl} />
+        )}
       </Content>
     </Layout>
   );

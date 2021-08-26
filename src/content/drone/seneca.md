@@ -1,16 +1,22 @@
 ---
-title: "Seneca Creek State Park, MD"
-date: "2020-12-27"
+title: 'Seneca Creek State Park, MD (Winter 2020 & Spring 2021)'
+date: '2020-12-27'
 draft: false
-path: "/drone/seneca-park"
+path: '/drone/seneca-park'
 lat: 39.1426609
 lng: -77.2524052
 videoSourceUrl: https://www.youtube.com/embed/hXhGpuWATto
-heroImg: "../../images/drone/seneca.jpg"
+heroImg: '../../images/drone/seneca.jpg'
 ---
 
-![](https://drive.google.com/uc?export=view&id=1Pw7eJ8EcBVyyEc9sOYgjT403D8EG1oLm)
+![](https://files.nickmonaco.me/drone/senecacreek/DJI_0002.JPG)
 
-![](https://drive.google.com/uc?export=view&id=1j6aK0tW-qFiSvstzbNpe9t0t-MGzX52D)
+![](https://files.nickmonaco.me/drone/senecacreek/DJI_0003.JPG)
 
-![](https://drive.google.com/uc?export=view&id=1uksi80sViQtyBrkHxGurVN_wEcQGCElP)
+![](https://files.nickmonaco.me/drone/senecacreek/DJI_0008.JPG)
+
+![](https://files.nickmonaco.me/drone/senecacreek/DJI_0096.JPG)
+
+![](https://files.nickmonaco.me/drone/senecacreek/DJI_0098.JPG)
+
+![](https://files.nickmonaco.me/drone/senecacreek/DJI_0100.JPG)
