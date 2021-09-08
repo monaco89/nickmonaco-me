@@ -1,6 +1,6 @@
-import styled from "@emotion/styled"
-import { MapPin } from "react-feather"
-import { GatsbyImage } from "gatsby-plugin-image"
+import styled from '@emotion/styled';
+import { MapPin } from 'react-feather';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 export const OuterContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const OuterContainer = styled.div`
   h1 {
     color: ${(props) => props.theme.color};
   }
-`
+`;
 
 export const Container = styled.div`
   text-align: center;
@@ -24,15 +24,14 @@ export const Container = styled.div`
   @media (max-width: 767px) {
     padding: 25px 10px 30px 10px;
   }
-`
+`;
 
 export const Content = styled.div`
   margin: 0 auto;
   max-width: 860px;
   padding: 1.45rem 1.0875rem;
-`
+`;
 
-// STYLE THE TAGS INSIDE THE MARKDOWN HERE
 export const MarkdownContent = styled.div`
   a {
     text-decoration: none;
@@ -50,13 +49,16 @@ export const MarkdownContent = styled.div`
       background-size: 100% 88%;
     }
   }
-`
+  p {
+    line-height: 140%;
+  }
+`;
 
 export const HeaderDate = styled.h3`
   margin-top: 10px;
   color: #606060;
   font-size: 1.1rem;
-`
+`;
 
 export const LocationTag = styled.h2`
   font-size: 1.4rem;
@@ -81,15 +83,15 @@ export const LocationTag = styled.h2`
     max-width: 90%;
     line-height: 30px;
   }
-`
+`;
 
 export const MapPinIcon = styled(MapPin)`
   color: #833ab4;
   margin-right: 10px;
-`
+`;
 
 export const LocationPicture = styled(GatsbyImage)`
   width: 100%;
   height: auto;
   border-radius: 8px;
-`
+`;

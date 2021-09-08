@@ -1,15 +1,16 @@
 ---
-title: "Code Example"
-date: "2019-06-06"
-draft: false
-path: "/blog/code-example"
+title: 'Code Example'
+date: '2019-06-06'
+draft: true
+path: '/blog/code-example'
 ---
 
 ## An Code example with PrismJS
+
 Gatsby-Starter-Julia uses the Atom Editor Theme.
 
 ```js
-console.log("Hello World");
+console.log('Hello World');
 ```
 
 ## Default NodeJS server

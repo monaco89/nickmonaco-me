@@ -1,20 +1,20 @@
-import React, { useContext } from "react"
-import { Link } from "gatsby"
-import styled from "@emotion/styled"
-import { GitHub, Rss, Mail, Aperture, Book, Radio, Home } from "react-feather"
-import { GlobalStateContext } from "../utils/context"
-import ThemeButton from "./ThemeButton"
+import React, { useContext } from 'react';
+import { Link } from 'gatsby';
+import styled from '@emotion/styled';
+import { GitHub, Rss, Mail, Aperture, Book, Radio } from 'react-feather';
+import { GlobalStateContext } from '../utils/context';
+import ThemeButton from './ThemeButton';
 
 const Content = styled.div`
   max-width: 860px;
   padding: 1rem 1.0875rem;
   font-size: 1.2rem;
-`
+`;
 
 const FlexBox = styled.p`
   display: inline-flex;
   flex-wrap: wrap;
-`
+`;
 
 const NavLink = styled(Link)`
   margin-left: 15px;
@@ -32,7 +32,7 @@ const NavLink = styled(Link)`
     box-shadow: ${(props) => props.theme.boxShadowInset};
     transition: all 0.2s linear;
   }
-`
+`;
 
 const IconLink = styled.a`
   margin-left: 15px;
@@ -42,7 +42,7 @@ const IconLink = styled.a`
   background: ${(props) => props.theme.background};
   box-shadow: ${(props) =>
     props.active ? props.theme.boxShadowInset : props.theme.boxShadow};
-  color: ${(props) => (props.active ? "#808c99" : props.theme.color)};
+  color: ${(props) => (props.active ? '#808c99' : props.theme.color)};
   padding: 10px;
   border-radius: 8px;
   justify-content: space-around;
@@ -52,30 +52,31 @@ const IconLink = styled.a`
     box-shadow: ${(props) => props.theme.boxShadowInset};
     color: #808c99;
   }
-`
+`;
 
 const HomeLink = styled(NavLink)`
   margin-left: 0;
   padding: 10px;
   max-height: 46px;
-`
+  font-weight: bold;
+`;
 
 const SiteHeader = styled.header`
   background: transparent;
   display: flex;
   align-content: center;
   justify-content: center;
-`
+`;
 
 const Header = ({ path }) => {
-  const state = useContext(GlobalStateContext)
+  const state = useContext(GlobalStateContext);
 
   return (
     <SiteHeader>
       <Content>
         <FlexBox>
           <HomeLink to="/" theme={{ ...state.themeLoaded }}>
-            <Home />
+            Nick Monaco
           </HomeLink>
           {/* <NavLink to="/blog">Blog</NavLink> */}
           <IconLink
@@ -105,7 +106,7 @@ const Header = ({ path }) => {
           </IconLink>
           <IconLink
             href="/fm"
-            active={path && path.includes("fm")}
+            active={path && path.includes('fm')}
             title="Music"
             theme={{ ...state.themeLoaded }}
           >
@@ -122,7 +123,7 @@ const Header = ({ path }) => {
           </IconLink>
           <IconLink
             href="/drone"
-            active={path && path.includes("drone")}
+            active={path && path.includes('drone')}
             title="Drone"
             theme={{ ...state.themeLoaded }}
           >
@@ -132,7 +133,7 @@ const Header = ({ path }) => {
         </FlexBox>
       </Content>
     </SiteHeader>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,29 +1,19 @@
 import React, { useContext } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import { FileText } from 'react-feather';
 import { GlobalStateContext } from '../utils/context';
 import { Container, OuterContainer } from './components';
 
-const SubTitle = styled.h2`
-  padding: 0;
+const Title = styled.h1`
+  padding-top: 20px;
+  font-size: 18pt;
+  font-weight: bold;
+  max-width: 500px;
 `;
 
 const Description = styled.p`
-  padding: 8px;
-  font-size: 1rem;
-  box-shadow: ${(props) => props.theme.boxShadowInset};
-  border-radius: 8px;
-`;
-
-const NameHeader = styled.h1`
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-
-  @media (max-width: 767px) {
-    font-size: 2.5rem;
-  }
+  font-size: 13pt;
 `;
 
 const ProfilePictureContainer = styled.div`
@@ -53,43 +43,28 @@ const LandingBio = () => {
   const state = useContext(GlobalStateContext);
 
   return (
-    <StaticQuery
-      query={graphql`
-        query LandingSiteTitleQuery {
-          site {
-            siteMetadata {
-              title
-              subtitle
-            }
-          }
-        }
-      `}
-      render={(data) => (
-        <OuterContainer>
-          <Container theme={{ ...state.themeLoaded }}>
-            <ProfilePictureContainer>
-              <StaticImage
-                src="../images/me.jpg"
-                alt="Nick Monaco Smiling"
-                imgStyle={{ borderRadius: '100%' }}
-              />
-            </ProfilePictureContainer>
-            <NameHeader>{data.site.siteMetadata.title}</NameHeader>
-            <SubTitle>{data.site.siteMetadata.subtitle}</SubTitle>
-            <Description theme={{ ...state.themeLoaded }}>
-              Based in Washington, D.C.
-            </Description>
-            <ResumeLink
-              href="https://files.nickmonaco.me/NickMonacoResume.pdf"
-              target="_blank"
-              theme={{ ...state.themeLoaded }}
-            >
-              <FileText style={{ height: '15px' }} /> Resume
-            </ResumeLink>
-          </Container>
-        </OuterContainer>
-      )}
-    />
+    <OuterContainer>
+      <Container theme={{ ...state.themeLoaded }}>
+        <ProfilePictureContainer>
+          <StaticImage
+            src="../images/me.jpg"
+            alt="Nick Monaco Smiling"
+            imgStyle={{ borderRadius: '100%' }}
+          />
+        </ProfilePictureContainer>
+        <Title>👋🏻 I&#39;m Nick: Senior Software Engineer at ICF</Title>
+        <Description>Programming professional. Drone enthusiast.</Description>
+        <Description>📍 Based in Washington, DC.</Description>
+        <br />
+        <ResumeLink
+          href="https://files.nickmonaco.me/NickMonacoResume.pdf"
+          target="_blank"
+          theme={{ ...state.themeLoaded }}
+        >
+          <FileText style={{ height: '15px' }} /> Resume
+        </ResumeLink>
+      </Container>
+    </OuterContainer>
   );
 };
 

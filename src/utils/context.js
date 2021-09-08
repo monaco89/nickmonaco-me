@@ -2,7 +2,6 @@ import React, { createContext } from 'react';
 import { light, dark } from '../constants/globalTheme';
 
 export const PlayerContext = createContext(() => false);
-
 export const GlobalStateContext = createContext();
 export const GlobalDispatchContext = createContext();
 const ThemeContext = React.createContext();
