@@ -78,7 +78,13 @@ const Header = ({ path }) => {
           <HomeLink to="/" theme={{ ...state.themeLoaded }}>
             Nick Monaco
           </HomeLink>
-          {/* <NavLink to="/blog">Blog</NavLink> */}
+          <HomeLink
+            to="/blog"
+            theme={{ ...state.themeLoaded }}
+            style={{ marginLeft: '15px' }}
+          >
+            Blog
+          </HomeLink>
           <IconLink
             target="_blank"
             href="https://rss.nickmonaco.me"

@@ -1,7 +1,7 @@
 ---
 title: '"SMART" Goals 2022'
 date: '2021-10-01'
-draft: true
+draft: false
 path: '/blog/smart-goals'
 ---
 
@@ -17,6 +17,7 @@ What are **SMART** goals? The SMART acroynm is used to help guide goal setting. 
 
 Coming up with goals that are not too vague is rather more difficult than I thought it would be. This list includes both professional and personal goals of mine and clearly it's still a work in progress...
 
+- [ ] Write one blog post every other week for the year.
 - [ ] Contribute to an open source project via one pull request. Submit a PR for a bug/feature to a project that I use frequently.
 - [ ] Learn a new technology/language and create a functional POC to lighlight its advantages and disadvantages.
 - [ ] Complete one certification in software/scrum management.
