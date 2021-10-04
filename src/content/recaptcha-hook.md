@@ -48,7 +48,7 @@ export function useRecaptcha() {
 }
 ```
 
-Lets go throw this hook...
+Lets go through this hook...
 
 `handleRecaptchaFocus` function creates a HTML script with the Google recaptcha API source then appends it in the head. When the script is loaded it will
 add the function to retrieve the token in the React state of the hook. We also don't want to keep creating a script tag if one exists already so we put a check before
