@@ -1,14 +1,14 @@
-import React, { useState, useContext } from "react"
-import styled from "@emotion/styled"
-import { SkipBack, SkipForward, Play, Pause } from "react-feather"
-import ReactPlayer from "react-player/youtube"
-import { playlist } from "../constants/playlist"
-import { GlobalStateContext } from "../utils/context"
-import Wheelsvg from "../images/wheel.svg"
-import Wheelpng from "../images/wheel.png"
-import Tapepng from "../images/tape.png"
-import Labelpng from "../images/labelscript.png"
-import Labelsvg from "../images/labelscript.svg"
+import React from 'react';
+import styled from '@emotion/styled';
+import { SkipBack, SkipForward, Play, Pause } from 'react-feather';
+import ReactPlayer from 'react-player/youtube';
+import { playlist } from '../constants/playlist';
+import { GlobalStateContext } from '../utils/context';
+import Wheelsvg from '../images/wheel.svg';
+import Wheelpng from '../images/wheel.png';
+import Tapepng from '../images/tape.png';
+import Labelpng from '../images/labelscript.png';
+import Labelsvg from '../images/labelscript.svg';
 
 const OuterContainer = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const OuterContainer = styled.div`
   @media (max-width: 767px) {
     height: 50vh;
   }
-`
+`;
 const Container = styled.div`
   text-align: center;
   box-shadow: ${(props) => props.theme.boxShadow};
@@ -48,7 +48,7 @@ const Container = styled.div`
   @media (max-width: 767px) {
     width 100%;
  }
-`
+`;
 const Buttons = styled.div`
   box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 15px;
@@ -56,7 +56,7 @@ const Buttons = styled.div`
   width: 100%;
   cursor: pointer;
   margin-top: 10%;
-`
+`;
 
 const Button = styled.button`
   background: ${(props) => props.theme.background};
@@ -79,7 +79,7 @@ const Button = styled.button`
   :focus {
     outline: none;
   }
-`
+`;
 const Window = styled.div`
   box-shadow: ${(props) => props.theme.boxShadow};
   background: ${(props) => props.theme.background};
@@ -89,24 +89,24 @@ const Window = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-`
+`;
 const Wheel = styled.object`
   height: auto;
   width: 15%;
-`
+`;
 const Tape = styled.img`
   padding-top: 25px;
   width: 30%;
-`
+`;
 const CassetteLabel = styled.object`
   width: 90%;
   height: 30%;
-`
+`;
 
-const Cassette = () => {
-  const state = useContext(GlobalStateContext)
-  const [play, toggle] = useState(false)
-  const [track, setTrack] = useState(0)
+function Cassette() {
+  const state = React.useContext(GlobalStateContext);
+  const [play, toggle] = React.useState(false);
+  const [track, setTrack] = React.useState(0);
 
   return (
     <OuterContainer>
@@ -118,7 +118,7 @@ const Cassette = () => {
           <Wheel
             data={Wheelsvg}
             type="image/svg+xml"
-            className={play && "spinner"}
+            className={play && 'spinner'}
           >
             <img src={Wheelpng} alt="Cassette wheel" />
           </Wheel>
@@ -126,7 +126,7 @@ const Cassette = () => {
           <Wheel
             data={Wheelsvg}
             type="image/svg+xml"
-            className={play && "spinner"}
+            className={play && 'spinner'}
           >
             <img src={Wheelpng} alt="Cassette wheel" width="75" />
           </Wheel>
@@ -139,7 +139,7 @@ const Cassette = () => {
         />
         <Buttons theme={{ ...state.themeLoaded }}>
           <Button
-            style={{ borderLeft: "none" }}
+            style={{ borderLeft: 'none' }}
             disabled={track < 1}
             onClick={() => setTrack(track - 1)}
             theme={{ ...state.themeLoaded }}
@@ -152,7 +152,7 @@ const Cassette = () => {
               play
                 ? {
                     boxShadow: state.themeLoaded.boxShadowInset,
-                    color: "maroon",
+                    color: 'maroon',
                   }
                 : {}
             }
@@ -166,7 +166,7 @@ const Cassette = () => {
               !play
                 ? {
                     boxShadow: state.themeLoaded.boxShadowInset,
-                    color: "maroon",
+                    color: 'maroon',
                   }
                 : {}
             }
@@ -184,7 +184,7 @@ const Cassette = () => {
         </Buttons>
       </Container>
     </OuterContainer>
-  )
+  );
 }
 
-export default Cassette
+export default Cassette;

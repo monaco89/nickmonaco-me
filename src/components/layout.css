@@ -763,3 +763,36 @@ a::selection {
 .gatsby-resp-image-image {
   border-radius: 8px;
 }
+
+.wheel-bg {
+  opacity: 1;
+}
+.wheel-bg {
+  animation: spin 60s linear infinite;
+  transition: all 0.4s ease-in-out;
+  animation-play-state: paused;
+  position: absolute;
+  background: #fff;
+  object-fit: cover;
+  opacity: 0.8;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  top: 0;
+}
+.wheel.spinning {
+  transform: scale(1);
+}
+.wheel.spinning {
+  animation-play-state: running;
+  opacity: 1;
+}
+.wheel.spinning .wheel-bg {
+  animation-play-state: running;
+  opacity: 1;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
