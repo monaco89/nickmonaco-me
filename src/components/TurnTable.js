@@ -26,6 +26,7 @@ const Container = styled.div`
   border-radius: 8px;
   width: 100%;
   height: 50vh;
+  min-height: 420px;
 
   display: -webkit-box;
   display: -moz-box;
