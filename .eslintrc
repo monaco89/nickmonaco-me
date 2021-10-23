@@ -5,10 +5,11 @@
   "plugins": ["@emotion/eslint-plugin"],
   "extends": ["airbnb", "prettier"],
   "rules": {
-    "react/jsx-filename-extension": "off",
-    "react/prop-types": "off",
-    "import/prefer-default-export": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "consistent-return": "off"
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0,
+    "import/prefer-default-export": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "consistent-return": 0,
+    "valid-typeof": 0
   }
 }
