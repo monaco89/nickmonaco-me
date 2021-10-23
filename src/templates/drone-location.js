@@ -51,7 +51,7 @@ const MapsContainer = styled.div`
 
 const DroneLocation = ({ data }) => {
   const state = useContext(GlobalStateContext);
-  const { frontmatter, html, excerpt, fields } = data.markdownRemark;
+  const { frontmatter, html, excerpt } = data.markdownRemark;
 
   return (
     <Layout>
@@ -64,9 +64,7 @@ const DroneLocation = ({ data }) => {
           {/* <MapPinIcon /> */}
           {frontmatter.title}
         </Header>
-        <HeaderDate>
-          {frontmatter.date} - {fields.readingTime.text}
-        </HeaderDate>
+        <HeaderDate>{frontmatter.date}</HeaderDate>
         <MapsContainer>
           <GoogleMapReact
             bootstrapURLKeys={{
@@ -114,11 +112,6 @@ export const pageQuery = graphql`
         lat
         lng
         videoSourceUrl
-      }
-      fields {
-        readingTime {
-          text
-        }
       }
     }
   }

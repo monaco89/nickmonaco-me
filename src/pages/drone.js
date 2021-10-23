@@ -1,25 +1,25 @@
-import React, { useContext } from "react"
-import { Link, graphql } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { GlobalStateContext } from "../utils/context"
+import React, { useContext } from 'react';
+import { Link, graphql } from 'gatsby';
+import { getImage } from 'gatsby-plugin-image';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { GlobalStateContext } from '../utils/context';
 import {
   OuterContainer,
   Container,
   LocationTag,
   MapPinIcon,
   LocationPicture,
-} from "../components/components"
+} from '../components/components';
 
 const Location = ({ location, url, img }) => {
-  const state = useContext(GlobalStateContext)
-  const gatsbyImage = getImage(img)
+  const state = useContext(GlobalStateContext);
+  const gatsbyImage = getImage(img);
 
   return (
     <Container
       theme={{ ...state.themeLoaded }}
-      style={{ marginBottom: "30px", width: "100%" }}
+      style={{ marginBottom: '30px', width: '100%' }}
     >
       <LocationTag theme={{ ...state.themeLoaded }}>
         <Link to={url}>
@@ -29,11 +29,11 @@ const Location = ({ location, url, img }) => {
       </LocationTag>
       <LocationPicture image={gatsbyImage} alt={location} />
     </Container>
-  )
-}
+  );
+};
 
 const DronePage = ({ data, path }) => {
-  const state = useContext(GlobalStateContext)
+  const state = useContext(GlobalStateContext);
 
   return (
     <Layout path={path}>
@@ -54,10 +54,10 @@ const DronePage = ({ data, path }) => {
         ))}
       </OuterContainer>
     </Layout>
-  )
-}
+  );
+};
 
-export default DronePage
+export default DronePage;
 
 export const query = graphql`
   query {
@@ -90,13 +90,9 @@ export const query = graphql`
           }
           fields {
             slug
-            # readingTime {
-            #   text
-            # }
           }
-          # excerpt
         }
       }
     }
   }
-`
+`;
