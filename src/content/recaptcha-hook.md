@@ -5,9 +5,9 @@ draft: false
 path: '/blog/create-custom-recaptcha-react-hook'
 ---
 
-Recently, I had implemented [Google reCAPTCHA](https://developers.google.com/recaptcha/docs/v3) v3 using a third party library for a website to protect public facing webforms from spam without an user friction. reCAPTCHA v3 is "invisible" so it does not show those "I am not a robot" checkboxes or picture clicking games, this does not disrupt the user flow by the client fetching a token from Google then verifying it later with a score. So when the user submits the request, the client fetches a token from Google which is then sent to the API. This token in the API request is then sent to Google again to return a score 1.0 being very likely a good interaction and 0.0 is very likely a bot. Based on the score you then do what you like e.g. return an error to the user.
+Recently, I had to implement [Google reCAPTCHA](https://developers.google.com/recaptcha/docs/v3) v3 using a third-party library for a website to protect public-facing web forms from spam without user friction. reCAPTCHA v3 is invisible, which means you do not have to show the "I am not a robot" checkboxes. The client will fetch a reCAPTCHA token from Google to be verified later on in the process. Google sends back a score between 0 to 1. 0.0 is very likely a bot to 1.0 being a good interaction.
 
-This was working well to protect the site against bots until you run a Google lighthouse test and the performance score tanks because of reCAPTCHA network requests when the page initially loads (when not cached). Having a survey popup on many pages user hit added to the initial load times by multiple seconds. The solution was to lazy load the initial reCAPTCHA request until the user focuses on the form itself which is when I created this custom React hook that I will show you below.
+This was working well to protect the site against bots until you run a Google lighthouse test and the performance score tanks because of reCAPTCHA network requests when the page initially loads. The solution was to lazy load the initial reCAPTCHA request until the user focuses on the form itself, which is when I created this custom React hook that I will show you below.
 
 ```js
 import React from 'react';
