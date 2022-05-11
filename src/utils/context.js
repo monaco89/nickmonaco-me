@@ -45,13 +45,14 @@ function reducer(state, [type]) {
   }
 }
 
-const GlobalStateProvider = ({ children }) => {
+function GlobalStateProvider({ children }) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   return (
     <GlobalStateContext.Provider value={state}>
       <GlobalDispatchContext.Provider value={dispatch}>
         <ThemeContext.Provider
+          // eslint-disable-next-line
           value={{
             themeLoaded: state.themeLoaded,
             dark: state.dark,
@@ -63,6 +64,6 @@ const GlobalStateProvider = ({ children }) => {
       </GlobalDispatchContext.Provider>
     </GlobalStateContext.Provider>
   );
-};
+}
 
 export default GlobalStateProvider;
