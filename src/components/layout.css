@@ -14,6 +14,7 @@ body {
   word-wrap: break-word;
   font-kerning: normal;
   height: 100%;
+  text-align: left;
 }
 article,
 aside,

@@ -13,7 +13,7 @@ const Body = styled.div`
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 860px;
+  max-width: 1200px;
   padding: 0 1.0875rem 1rem;
   padding-top: 0;
 `;

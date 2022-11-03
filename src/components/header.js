@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
-import { GitHub, Mail, Aperture, Book, Radio } from 'react-feather';
+import { GitHub, Mail, Aperture, Radio } from 'react-feather';
 import { GlobalStateContext } from '../utils/context';
 import ThemeButton from './ThemeButton';
 
@@ -118,7 +118,7 @@ const Header = ({ path }) => {
           >
             <Radio />
           </IconLink>
-          <IconLink
+          {/* <IconLink
             href="https://www.goodreads.com/user/show/77669630-nick-monaco"
             target="_blank"
             rel="noreferrer"
@@ -126,7 +126,7 @@ const Header = ({ path }) => {
             theme={{ ...state.themeLoaded }}
           >
             <Book />
-          </IconLink>
+          </IconLink> */}
           <IconLink
             href="/drone"
             active={path && path.includes('drone')}
