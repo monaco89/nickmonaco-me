@@ -39,7 +39,7 @@ const ResumeLink = styled.a`
   }
 `;
 
-const LandingBio = () => {
+function LandingBio() {
   const state = useContext(GlobalStateContext);
 
   return (
@@ -53,7 +53,6 @@ const LandingBio = () => {
           />
         </ProfilePictureContainer>
         <Title>👋🏻 I&#39;m Nick: Senior Software Engineer at ICF</Title>
-        <Description>Programming professional. Drone enthusiast.</Description>
         <Description>📍 Based in Washington, DC.</Description>
         <br />
         <ResumeLink
@@ -66,6 +65,6 @@ const LandingBio = () => {
       </Container>
     </OuterContainer>
   );
-};
+}
 
 export default LandingBio;
