@@ -18,18 +18,25 @@ const CardContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  height: 37rem;
+  height: 17rem;
   width: 100%;
   // border: 0 solid #eee;
   position: relative;
   // background-color: #d8d8d8;
 
-  img {
+  .gatsby-image-wrapper {
     -webkit-transition: -webkit-transform 4s cubic-bezier(0.35, 0.9, 0.5, 1);
     transition: -webkit-transform 4s cubic-bezier(0.35, 0.9, 0.5, 1);
     transition: transform 4s cubic-bezier(0.35, 0.9, 0.5, 1);
     transition: transform 4s cubic-bezier(0.35, 0.9, 0.5, 1),
       -webkit-transform 4s cubic-bezier(0.35, 0.9, 0.5, 1);
+
+    :hover {
+      transform: scale(1.2);
+    }
+  }
+
+  img {
     -o-object-fit: cover;
     object-fit: cover;
     -o-object-position: center;
@@ -40,9 +47,6 @@ const ImageContainer = styled.div`
     background-position: 50%;
     max-width: 100%;
     display: block;
-    :hover {
-      transform: scale(1.2);
-    }
   }
 `;
 
@@ -81,7 +85,6 @@ const Header = styled.h2`
 export default function LargeCard({
   header,
   url = '/',
-  picture = 'https://files.nickmonaco.me/drone/bigsur/DJI_0255.JPG',
   subHeader,
   theme,
   gatsbyImage,
@@ -104,10 +107,7 @@ export default function LargeCard({
               borderRadius: '2px',
             }}
           >
-            {!gatsbyImage && (
-              <img data-src={picture} alt={header} src={picture} />
-            )}
-            {gatsbyImage && <GatsbyImage image={gatsbyImage} alt={header} />}
+            <GatsbyImage image={gatsbyImage} alt={header} />
           </div>
           <SubHeader theme={theme}>{subHeader}</SubHeader>
         </ImageContainer>

@@ -1,34 +1,25 @@
 import React, { useContext } from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { GlobalStateContext } from '../utils/context';
-import {
-  OuterContainer,
-  Container,
-  LocationTag,
-  MapPinIcon,
-  LocationPicture,
-} from '../components/components';
+import { OuterContainer } from '../components/components';
+import GatsbyImage from '../components/GatsbyImage';
 
-const Location = ({ location, url, img }) => {
+const Location = ({ location, url, img, date }) => {
   const state = useContext(GlobalStateContext);
   const gatsbyImage = getImage(img);
 
   return (
-    <Container
+    <GatsbyImage
       theme={{ ...state.themeLoaded }}
       style={{ marginBottom: '30px', width: '100%' }}
-    >
-      <LocationTag theme={{ ...state.themeLoaded }}>
-        <Link to={url}>
-          <MapPinIcon />
-          {location}
-        </Link>
-      </LocationTag>
-      <LocationPicture image={gatsbyImage} alt={location} />
-    </Container>
+      header={`📍 ${location}`}
+      subHeader={date}
+      url={url}
+      gatsbyImage={gatsbyImage}
+    />
   );
 };
 
@@ -50,6 +41,7 @@ const DronePage = ({ data, path }) => {
             location={node.frontmatter.title}
             url={node.frontmatter.path}
             img={node.frontmatter.heroImg}
+            date={node.frontmatter.rawDate}
           />
         ))}
       </OuterContainer>
