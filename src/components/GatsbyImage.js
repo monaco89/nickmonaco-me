@@ -15,10 +15,11 @@ const CardContainer = styled.div`
   transition-duration: 0.8s;
   -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
+  min-width: 300px;
 `;
 
 const ImageContainer = styled.div`
-  height: 17rem;
+  // height: 17rem;
   width: 100%;
   // border: 0 solid #eee;
   position: relative;

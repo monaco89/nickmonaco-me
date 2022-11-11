@@ -15,6 +15,11 @@ const CardContainer = styled.div`
   transition-duration: 0.8s;
   -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
+  min-width: 300px;
+
+  //   @media screen and (min-width: 767px) {
+  //     width 100%;
+  //  }
 `;
 
 const ImageContainer = styled.div`
