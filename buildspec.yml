@@ -7,7 +7,7 @@ phases:
       - yarn global add gatsby
   pre_build:
     commands:
-      - yarn install --frozen-lockfile
+      - yarn install --frozen-lockfile --ignore-engines
   build:
     commands:
       - CI=true yarn build
