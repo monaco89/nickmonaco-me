@@ -15,11 +15,7 @@ const CardContainer = styled.div`
   transition-duration: 0.8s;
   -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
-  min-width: 300px;
-
-  //   @media screen and (min-width: 767px) {
-  //     width 100%;
-  //  }
+  min-width: 315px;
 `;
 
 const ImageContainer = styled.div`
@@ -69,7 +65,7 @@ const SubHeader = styled.p`
 `;
 
 const HeaderContainer = styled.div`
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
   padding-top: 1rem;
 `;
 
@@ -99,7 +95,7 @@ export default function LargeCard({
         style={{ display: 'block', textDecoration: 'none' }}
         rel="noreferrer"
       >
-        <ImageContainer>
+        <ImageContainer className="image-container">
           <div
             style={{
               height: '100%',

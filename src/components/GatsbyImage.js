@@ -69,7 +69,7 @@ const SubHeader = styled.p`
 `;
 
 const HeaderContainer = styled.div`
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
   padding-top: 1rem;
 `;
 
