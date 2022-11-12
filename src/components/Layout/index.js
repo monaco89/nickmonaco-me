@@ -1,3 +1,5 @@
-import "./header";
-import "./layout";
-import "./seo";
+import Header from "./header";
+import Layout from "./layout";
+import SEO from "./seo";
+
+export { Header, Layout, SEO };
