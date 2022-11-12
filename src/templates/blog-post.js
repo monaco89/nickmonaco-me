@@ -1,9 +1,13 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { Content, MarkdownContent, HeaderDate } from '../components/components';
+import React from "react";
+import { graphql } from "gatsby";
+import styled from "@emotion/styled";
+import {
+  Content,
+  MarkdownContent,
+  HeaderDate,
+  Layout,
+  SEO,
+} from "../components";
 
 const MarkedHeader = styled.h1`
   display: inline;

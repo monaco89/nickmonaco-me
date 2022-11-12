@@ -1,21 +1,23 @@
-import React, { useContext } from 'react';
-import { graphql } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { GlobalStateContext } from '../utils/context';
-import { OuterContainer } from '../components/components';
-import GatsbyImage from '../components/GatsbyImage';
+import React, { useContext } from "react";
+import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
+import {
+  Layout,
+  SEO,
+  OuterContainer,
+  HorizontalImageCard,
+} from "../components";
+import { GlobalStateContext } from "../utils/context";
 
 const Location = ({ location, url, img, date }) => {
   const state = useContext(GlobalStateContext);
   const gatsbyImage = getImage(img);
 
   return (
-    <GatsbyImage
+    <HorizontalImageCard
       theme={{ ...state.themeLoaded }}
-      style={{ marginBottom: '30px', width: '100%' }}
-      header={`📍 ${location}`}
+      style={{ marginBottom: "30px", width: "100%" }}
+      header={location}
       subHeader={date}
       url={url}
       gatsbyImage={gatsbyImage}

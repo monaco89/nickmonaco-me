@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import styled from '@emotion/styled';
-import Header from './header';
-import { GlobalStateContext } from '../utils/context';
+import React, { useContext } from "react";
+import { StaticQuery, graphql } from "gatsby";
+import styled from "@emotion/styled";
+import Header from "./header";
+import { GlobalStateContext } from "../../utils/context";
 
-import './layout.css';
+import "./layout.css";
 
 const Body = styled.div`
   background: ${(props) => props.theme.background};

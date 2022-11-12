@@ -1,10 +1,10 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 function SEO({
   description,
-  lang = 'en',
+  lang = "en",
   // keywords = ['nick', 'monaco', 'software', 'developer'],
   title,
 }) {
@@ -23,7 +23,7 @@ function SEO({
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = 'https://files.nickmonaco.me/nickmonac-metatag-image.png';
+  const metaImage = "https://files.nickmonaco.me/nickmonac-metatag-image.png";
 
   return (
     <Helmet
@@ -31,7 +31,7 @@ function SEO({
         lang,
       }}
     >
-      <title>{title}</title>
+      <title>{title} | Nick Monaco</title>
       {/* <link
         rel="apple-touch-icon"
         sizes="180x180"

@@ -1,13 +1,11 @@
-import React from 'react';
-import LandingBio from '../components/LandingBio';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import { Layout, LandingBio, SEO } from "../components";
 
 function IndexPage({ path }) {
   return (
     <Layout path={path}>
       <SEO
-        title="Nick Monaco | Engineer"
+        title="Engineer"
         keywords={[
           `nick`,
           `monaco`,

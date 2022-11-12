@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
-import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
-import GoogleMapReact from 'google-map-react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Video from '../components/Video';
+import React, { useContext } from "react";
+import { graphql } from "gatsby";
+import styled from "@emotion/styled";
+import GoogleMapReact from "google-map-react";
 import {
   Content,
   MarkdownContent,
-  MapPinIcon,
   HeaderDate,
-} from '../components/components';
-import { GlobalStateContext } from '../utils/context';
+  Layout,
+  MapPinIcon,
+  SEO,
+  Video,
+} from "../components";
+import { GlobalStateContext } from "../utils/context";
 
 const Header = styled.h1`
   font-size: 1.6rem;
@@ -19,6 +19,9 @@ const Header = styled.h1`
   border-radius: 8px;
   text-align: left;
   width: fit-content;
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
 
   background-image: linear-gradient(to left, #fcb045, #fd1d1d, #833ab4);
   -webkit-background-clip: text;
@@ -61,7 +64,7 @@ const DroneLocation = ({ data }) => {
       />
       <Content>
         <Header theme={{ ...state.themeLoaded }}>
-          {/* <MapPinIcon /> */}
+          <MapPinIcon />
           {frontmatter.title}
         </Header>
         <HeaderDate>{frontmatter.date}</HeaderDate>

@@ -1,10 +1,8 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import { Link, graphql } from "gatsby";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { Layout, SEO } from "../components";
 
 const Content = styled.div`
   margin: 0 auto;

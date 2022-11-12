@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { SkipBack, SkipForward, Play, Pause } from 'react-feather';
-import ReactPlayer from 'react-player/youtube';
-import { playlist } from '../constants/playlist';
-import { GlobalStateContext } from '../utils/context';
-import Wheelsvg from '../images/wheel.svg';
-import Wheelpng from '../images/wheel.png';
-import Tapepng from '../images/tape.png';
-import Labelpng from '../images/labelscript.png';
-import Labelsvg from '../images/labelscript.svg';
+import React from "react";
+import styled from "@emotion/styled";
+import { SkipBack, SkipForward, Play, Pause } from "react-feather";
+import ReactPlayer from "react-player/youtube";
+import { playlist } from "../constants/playlist";
+import { GlobalStateContext } from "../utils/context";
+import Wheelsvg from "../images/wheel.svg";
+import Wheelpng from "../images/wheel.png";
+import Tapepng from "../images/tape.png";
+import Labelpng from "../images/labelscript.png";
+import Labelsvg from "../images/labelscript.svg";
 
 const OuterContainer = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ const Container = styled.div`
   padding: 0px 3% 3% 3%;
   border-radius: 8px;
   width: 80%;
-  height: 40vh;
+  height: 45vh;
 
   display: -webkit-box;
   display: -moz-box;
@@ -47,6 +47,7 @@ const Container = styled.div`
 
   @media (max-width: 767px) {
     width 100%;
+    height: 25vh;
  }
 `;
 const Buttons = styled.div`
@@ -89,6 +90,11 @@ const Window = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
+
+  @media (max-width: 767px) {
+    width: 85%;
+    height: 8vh;
+  }
 `;
 const Wheel = styled.object`
   height: auto;
@@ -101,6 +107,11 @@ const Tape = styled.img`
 const CassetteLabel = styled.object`
   width: 90%;
   height: 30%;
+  margin-bottom: 35px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 0;
+  }
 `;
 
 function Cassette() {
@@ -118,7 +129,7 @@ function Cassette() {
           <Wheel
             data={Wheelsvg}
             type="image/svg+xml"
-            className={play && 'spinner'}
+            className={play && "spinner"}
           >
             <img src={Wheelpng} alt="Cassette wheel" />
           </Wheel>
@@ -126,7 +137,7 @@ function Cassette() {
           <Wheel
             data={Wheelsvg}
             type="image/svg+xml"
-            className={play && 'spinner'}
+            className={play && "spinner"}
           >
             <img src={Wheelpng} alt="Cassette wheel" width="75" />
           </Wheel>
@@ -139,7 +150,7 @@ function Cassette() {
         />
         <Buttons theme={{ ...state.themeLoaded }}>
           <Button
-            style={{ borderLeft: 'none' }}
+            style={{ borderLeft: "none" }}
             disabled={track < 1}
             onClick={() => setTrack(track - 1)}
             theme={{ ...state.themeLoaded }}
@@ -152,7 +163,7 @@ function Cassette() {
               play
                 ? {
                     boxShadow: state.themeLoaded.boxShadowInset,
-                    color: 'maroon',
+                    color: "maroon",
                   }
                 : {}
             }
@@ -166,7 +177,7 @@ function Cassette() {
               !play
                 ? {
                     boxShadow: state.themeLoaded.boxShadowInset,
-                    color: 'maroon',
+                    color: "maroon",
                   }
                 : {}
             }

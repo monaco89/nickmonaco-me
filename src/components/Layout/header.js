@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { Link } from 'gatsby';
-import styled from '@emotion/styled';
-import { GitHub, Mail, Aperture, Radio } from 'react-feather';
-import { GlobalStateContext } from '../utils/context';
-import ThemeButton from './ThemeButton';
+import React, { useContext } from "react";
+import { Link } from "gatsby";
+import styled from "@emotion/styled";
+import { GitHub, Mail, Aperture, Radio } from "react-feather";
+import { GlobalStateContext } from "../../utils/context";
+import ThemeButton from "../ThemeButton";
 
 const Content = styled.div`
   max-width: 860px;
@@ -42,7 +42,7 @@ const IconLink = styled.a`
   background: ${(props) => props.theme.background};
   box-shadow: ${(props) =>
     props.active ? props.theme.boxShadowInset : props.theme.boxShadow};
-  color: ${(props) => (props.active ? '#808c99' : props.theme.color)};
+  color: ${(props) => (props.active ? "#808c99" : props.theme.color)};
   padding: 10px;
   border-radius: 8px;
   justify-content: space-around;
@@ -81,7 +81,7 @@ const Header = ({ path }) => {
           <HomeLink
             to="/blog"
             theme={{ ...state.themeLoaded }}
-            style={{ marginLeft: '15px' }}
+            style={{ marginLeft: "15px" }}
           >
             Blog
           </HomeLink>
@@ -112,7 +112,7 @@ const Header = ({ path }) => {
           </IconLink>
           <IconLink
             href="/fm"
-            active={path && path.includes('fm')}
+            active={path && path.includes("fm")}
             title="Music"
             theme={{ ...state.themeLoaded }}
           >
@@ -129,7 +129,7 @@ const Header = ({ path }) => {
           </IconLink> */}
           <IconLink
             href="/drone"
-            active={path && path.includes('drone')}
+            active={path && path.includes("drone")}
             title="Drone"
             theme={{ ...state.themeLoaded }}
           >

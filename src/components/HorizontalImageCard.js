@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import React from "react";
+import styled from "@emotion/styled";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { MapPinIcon } from "./components";
 
 const CardContainer = styled.div`
   padding-left: 2rem;
@@ -70,7 +71,11 @@ const SubHeader = styled.p`
 
 const HeaderContainer = styled.div`
   padding-bottom: 3rem;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
+
+  background-image: linear-gradient(to left, #fcb045, #fd1d1d, #833ab4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 const Header = styled.h2`
@@ -81,11 +86,14 @@ const Header = styled.h2`
   font-weight: 700;
   margin: 0;
   color: ${(props) => props.theme.color};
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
 `;
 
-export default function LargeCard({
+export default function HorizontalImageCard({
   header,
-  url = '/',
+  url = "/",
   subHeader,
   theme,
   gatsbyImage,
@@ -94,18 +102,18 @@ export default function LargeCard({
     <CardContainer>
       <a
         href={url}
-        target={url.startsWith('https') ? '_blank' : ''}
-        style={{ display: 'block', textDecoration: 'none' }}
+        target={url.startsWith("https") ? "_blank" : ""}
+        style={{ display: "block", textDecoration: "none" }}
         rel="noreferrer"
       >
         <ImageContainer>
           <div
             style={{
-              height: '100%',
-              width: '100%',
-              overflow: 'hidden',
-              position: 'relative',
-              borderRadius: '2px',
+              height: "100%",
+              width: "100%",
+              overflow: "hidden",
+              position: "relative",
+              borderRadius: "2px",
             }}
           >
             <GatsbyImage image={gatsbyImage} alt={header} />
@@ -113,7 +121,9 @@ export default function LargeCard({
           <SubHeader theme={theme}>{subHeader}</SubHeader>
         </ImageContainer>
         <HeaderContainer>
-          <Header theme={theme}>{header}</Header>
+          <Header theme={theme}>
+            <MapPinIcon /> {header}
+          </Header>
         </HeaderContainer>
       </a>
     </CardContainer>
