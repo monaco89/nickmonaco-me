@@ -4,7 +4,8 @@ phases:
     runtime-versions:
       nodejs: 16
     commands:
-      - yarn global add gatsby@4.24
+      - n 18
+      - yarn global add gatsby@latest
   pre_build:
     commands:
       - yarn install --frozen-lockfile

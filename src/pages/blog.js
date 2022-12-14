@@ -61,14 +61,14 @@ const IndexPage = ({ data, path }) => (
 export default IndexPage;
 
 export const query = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { draft: { eq: false } } }
     ) {
       totalCount
