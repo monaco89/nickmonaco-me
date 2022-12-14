@@ -49,7 +49,7 @@ function LandingBio() {
         />
         <LargeCard
           header="Gallery"
-          subHeader="Explore Photos of My Travels"
+          subHeader="Explore Drone Photos"
           picture="https://files.nickmonaco.me/home_gallery.jpeg"
           url="/drone"
           theme={{ ...state.themeLoaded }}
