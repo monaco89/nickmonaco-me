@@ -3,12 +3,13 @@ const targetAddress = new URL(
 );
 
 module.exports = {
+  trailingSlash: `never`,
   siteMetadata: {
     title: `Nick Monaco`,
     subtitle: `Software Developer 👨‍💻`,
     description: `Nick Monaco's blog, projects, hopes and dreams`,
     author: `@nickmonaco`,
-    siteUrl: 'https://nickmonaco.me',
+    siteUrl: "https://nickmonaco.me",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -38,7 +39,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              aliases: { sh: 'bash', js: 'javascript' },
+              aliases: { sh: "bash", js: "javascript" },
               showLineNumbers: true,
             },
           },
@@ -56,11 +57,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://nickmonaco.me',
-        sitemap: 'https://nickmonaco.me/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }],
+        host: "https://nickmonaco.me",
+        sitemap: "https://nickmonaco.me/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     // {
@@ -81,7 +82,7 @@ module.exports = {
     //   },
     // },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
           include: /src\/images\/svg\/.*\.svg/,
@@ -91,13 +92,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'none',
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || "none",
       },
     },
     {
       resolve: `gatsby-plugin-s3`,
       options: {
-        bucketName: process.env.TARGET_BUCKET_NAME || 'fake-bucket',
+        bucketName: process.env.TARGET_BUCKET_NAME || "fake-bucket",
         region: process.env.AWS_REGION,
         protocol: targetAddress.protocol.slice(0, -1),
         hostname: targetAddress.hostname,

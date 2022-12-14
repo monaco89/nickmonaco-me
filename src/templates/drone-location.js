@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import GoogleMapReact from "google-map-react";
+// import GoogleMapReact from "google-map-react";
 import {
   Content,
   MarkdownContent,
@@ -28,29 +28,29 @@ const Header = styled.h1`
   -webkit-text-fill-color: transparent;
 `;
 
-const MapLocationTag = styled.p`
-  font-size: 1.2rem;
-  padding: 12px 12px 12px 0px;
-  border-radius: 8px;
-  text-align: left;
-  width: fit-content;
-  white-space: nowrap;
-  font-weight: bold;
+// const MapLocationTag = styled.p`
+//   font-size: 1.2rem;
+//   padding: 12px 12px 12px 0px;
+//   border-radius: 8px;
+//   text-align: left;
+//   width: fit-content;
+//   white-space: nowrap;
+//   font-weight: bold;
 
-  background-image: linear-gradient(to left, #fcb045, #fd1d1d, #833ab4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
+//   background-image: linear-gradient(to left, #fcb045, #fd1d1d, #833ab4);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// `;
 
-const MapsContainer = styled.div`
-  height: 50vh;
-  margin-bottom: 30px;
-  // width: 50vw;
+// const MapsContainer = styled.div`
+//   height: 50vh;
+//   margin-bottom: 30px;
+//   // width: 50vw;
 
-  @media (max-width: 767px) {
-    width: 80vw;
-  }
-`;
+//   @media (max-width: 767px) {
+//     width: 80vw;
+//   }
+// `;
 
 const DroneLocation = ({ data }) => {
   const state = useContext(GlobalStateContext);
@@ -68,7 +68,7 @@ const DroneLocation = ({ data }) => {
           {frontmatter.title}
         </Header>
         <HeaderDate>{frontmatter.date}</HeaderDate>
-        <MapsContainer>
+        {/* <MapsContainer>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: process.env.GATSBY_GOOGLE_MAPS_API_KEY,
@@ -88,7 +88,7 @@ const DroneLocation = ({ data }) => {
               {frontmatter.title}
             </MapLocationTag>
           </GoogleMapReact>
-        </MapsContainer>
+        </MapsContainer> */}
         <MarkdownContent
           dangerouslySetInnerHTML={{ __html: html }}
           style={{ color: state.themeLoaded.color }}

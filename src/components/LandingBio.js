@@ -37,7 +37,7 @@ function LandingBio() {
   return (
     <>
       <LocationContainer theme={{ ...state.themeLoaded }}>
-        <Location>📍 Based in Washington, DC.</Location>
+        <Location>📍 Based in Connecticut, US.</Location>
       </LocationContainer>
       <Container>
         <LargeCard
