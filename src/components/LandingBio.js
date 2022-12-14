@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import styled from '@emotion/styled';
-import { GlobalStateContext } from '../utils/context';
-import LargeCard from './LargeCard';
+import React, { useContext } from "react";
+import styled from "@emotion/styled";
+import { GlobalStateContext } from "../utils/context";
+import LargeCard from "./LargeCard";
 
 const Container = styled.div`
   display: flex;
@@ -43,13 +43,14 @@ function LandingBio() {
         <LargeCard
           header="Resume"
           subHeader="Download PDF"
+          picture="https://files.nickmonaco.me/home_resume.jpeg"
           url="https://files.nickmonaco.me/NickMonacoResume.pdf"
           theme={{ ...state.themeLoaded }}
         />
         <LargeCard
           header="Gallery"
           subHeader="Explore Photos of My Travels"
-          picture="https://files.nickmonaco.me/drone/narragansett/DJI_0142.JPG"
+          picture="https://files.nickmonaco.me/home_gallery.jpeg"
           url="/drone"
           theme={{ ...state.themeLoaded }}
         />

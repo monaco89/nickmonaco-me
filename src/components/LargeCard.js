@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import React from "react";
+import styled from "@emotion/styled";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const CardContainer = styled.div`
   padding-left: 2rem;
@@ -81,8 +81,8 @@ const Header = styled.h2`
 
 export default function LargeCard({
   header,
-  url = '/',
-  picture = 'https://files.nickmonaco.me/drone/bigsur/DJI_0255.JPG',
+  url = "/",
+  picture = "https://files.nickmonaco.me/home_resume.jpeg",
   subHeader,
   theme,
   gatsbyImage,
@@ -91,18 +91,18 @@ export default function LargeCard({
     <CardContainer>
       <a
         href={url}
-        target={url.startsWith('https') ? '_blank' : ''}
-        style={{ display: 'block', textDecoration: 'none' }}
+        target={url.startsWith("https") ? "_blank" : ""}
+        style={{ display: "block", textDecoration: "none" }}
         rel="noreferrer"
       >
         <ImageContainer className="image-container">
           <div
             style={{
-              height: '100%',
-              width: '100%',
-              overflow: 'hidden',
-              position: 'relative',
-              borderRadius: '2px',
+              height: "100%",
+              width: "100%",
+              overflow: "hidden",
+              position: "relative",
+              borderRadius: "2px",
             }}
           >
             {!gatsbyImage && (
