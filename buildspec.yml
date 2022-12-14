@@ -2,8 +2,9 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 16
     commands:
+      - n 18
       - yarn global add gatsby@latest
   pre_build:
     commands:
